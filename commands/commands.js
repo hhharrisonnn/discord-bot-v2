@@ -24,11 +24,12 @@ module.exports = {
       {name: 'Killweebs', value: '$killweebs, $kw [amount]'},
       {name: 'Number of weebs in cage', value: '$caged, $cage, $cagedweebs'},
       {name: 'Check juice level😂', value: '$juice'},
+      {name: 'Say', value: '$say #[channel] [message]'},
       {name: 'Check your permissions', value: '$perms'},
       {name: 'Avatar/profile pic of a user', value: '$avatar, $profilepic, $pfp, $icon @[member]'},
       {name: 'Weather', value: '$weather [location]'},
       {name: 'Check cock size', value: '$cock'},
-      {name: 'kick (ADMIN ONLY)', value: '$kick @[member]'},
+      {name: 'Kick (ADMIN ONLY)', value: '$kick @[member]'},
       {name: 'Purge (ADMIN ONLY, you cannot delete messages that are older than 14 days).', value: '$purge [number]'},
     ) 
     .setFooter('Bot made by harrison#1058 :)')
