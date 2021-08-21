@@ -29,6 +29,8 @@ module.exports = {
       {name: 'Avatar/profile pic of a user', value: '$avatar, $profilepic, $pfp, $icon @[member]'},
       {name: 'Weather', value: '$weather [location]'},
       {name: 'Check cock size', value: '$cock'},
+      {name: 'Change someone\'s nickname (MANAGE NICKNAMES ROLE ONLY)', value: '$nick, $nickname @[member] [new nickname]'},
+      {name: 'Reset someone\'s nickname (MANAGE NICKNAMES ROLE ONLY)', value: '$resetnick, $nickrest @[member]'},
       {name: 'Kick (ADMIN ONLY)', value: '$kick @[member]'},
       {name: 'Purge (ADMIN ONLY, you cannot delete messages that are older than 14 days).', value: '$purge [number]'},
     ) 
