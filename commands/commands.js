@@ -29,6 +29,8 @@ module.exports = {
       {name: 'Avatar/profile pic of a user', value: '$avatar, $profilepic, $pfp, $icon @[member]'},
       {name: 'Weather', value: '$weather [location]'},
       {name: 'Check cock size', value: '$cock'},
+      {name: 'Go AFK', value: '$afk'},
+      {name: 'Return from AFK', value: '$nafk, $return'},
       {name: 'Change someone\'s nickname (MANAGE NICKNAMES ROLE ONLY)', value: '$nick, $nickname @[member] [new nickname]'},
       {name: 'Reset someone\'s nickname (MANAGE NICKNAMES ROLE ONLY)', value: '$resetnick, $nickrest @[member]'},
       {name: 'Kick (ADMIN ONLY)', value: '$kick @[member]'},
