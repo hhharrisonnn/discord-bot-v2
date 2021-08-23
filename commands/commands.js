@@ -16,6 +16,7 @@ module.exports = {
       {name: 'Balance', value: '$balance, $bal, $b'},
       {name: 'Deposit coins, 1 day cooldown', value: '$deposit, $dep [number]'},
       {name: 'Withdraw coins', value: '$withdraw, $wd [number]'},
+      {name: 'Give coins to someone', value: '$givecoins, $gc, $givepoints, $gp'},
       {name: 'Beg for coins (cringe), 1 hour cooldown', value: '$beg'},
       {name: '8Ball', value: '$8ball [question]'},
       {name: 'Momjoke', value: '$momjoke, $mumjoke'},
