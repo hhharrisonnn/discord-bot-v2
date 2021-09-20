@@ -2,7 +2,7 @@ module.exports = {
   name: 'nafk',
   permissions: [],
   cooldown: 0,
-  aliases: ['return'],
+  aliases: ['return', 'rafk'],
   description: 'Return from AFK status (displayed on nickname).',
   execute(message, args, cmd, client, Discord, profileData) {
     const nickname = message.member.displayName;
