@@ -1,6 +1,6 @@
 {
   "name": "discord-bot-v2",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Discord Bot",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1",
+    "discord.js-pagination": "^1.0.3",
     "dotenv": "^10.0.0",
-    "fs": "0.0.1-security",
-    "mongoose": "^5.13.7",
+    "fs": "^0.0.1-security",
+    "mongoose": "^5.13.9",
+    "node-fetch": "^2.6.1",
     "weather-js": "^2.0.0"
   }
 }
