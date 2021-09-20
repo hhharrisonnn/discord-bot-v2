@@ -5,74 +5,14 @@ module.exports = {
   aliases: ['mumjoke'],
   description: 'A joke about your mother.',
   execute(message, args, cmd, client, Discord, profileData) {
-    const momJokes = [
-      'Yo mama so stupid she bought tickets to xbox live.',
-      'Yo mama so stupid she thought Nickelback was a refund.',
-      'Yo mama so ugly she makes One Direction go the other direction.',
-      'Yo mama so hairy when she gave birth to you, you got carpet burn.',
-      'Yo mama so stupid she thought seaweed was something that fish smoke.',
-      'Yo mama so ugly Bob the Builder said "I can\'t fix that".',
-      'Yo mama so stupid she put two quarters in her ears and thought she was listening to 50 cent.',
-      'Yo mama so stupid she made an appointment with Dr. Pepper.',
-      'Yo mama so fat she had to be baptized at SeaWorld.',
-      'Yo mama so ugly when she went into a haunted house she came out with a job application.',
-      'Yo mama so stupid she tried to climb Mountain Dew.',
-      'Yo mama so ugly she made an onion cry.',
-      'Yo mama so fat when she died she broke the stairway to Heaven.',
-      'Yo mama so poor she eats cereal with a fork to save milk.',
-      'Yo mama so ugly she turned Medusa to stone.',
-      'Yo mama so old when I told her to act her age she died.',
-      'Yo mama so fat her splash attack does damage.',
-      'Yo mama so stupid she yelled into an envelope because she wanted to send a voicemail.',
-      'Yo mama so ugly Hello Kitty said goodbye.',
-      'Yo mama so stupid she studied for a drug test.',
-      'Yo mama so stupid when she heard it was "chilly" outside she ran and got a bowl.',
-      'Yo mama so stupid she got fired from the M&M factory for throwing out the "W"s.',
-      'Yo mama so ugly her birth certificate is an apology letter from the Trojan Man.',
-      'Yo mama so fat when she sat on the iPod she made the iPad.',
-      'Yo mama so poor she went to KFC to lick peoples\' fingers.',
-      'Yo mama so fat she needs cheat codes for Wii Fit.',
-      'Yo mama so ugly at the strip club people pay her to keep her clothes on.',
-      'Yo mama so stupid when she got locked in a grocery store, she starved to death.',
-      'Yo mama so fat even Dora couldn\'t explore her.',
-      'Yo mama so stupid, she spent five minutes staring at a carton of Orange Juice because it said "concentrate."',
-      'Yo mama is so stupid that at bottom of application where it says Sign Here - she put Scorpio.',
-      'Yo mama is like Dominoes Pizza, one call does it all.',
-      'Yo mama is so stupid that she called the 7-11 to see when they closed.',
-      'Yo mama\'s so fat that scientists track her position by observing anomalies in Pluto\'s orbit.',
-      'Yo mama is so fat that she doesngt eat with a fork, she eats with a forklift.',
-      'Yo mama is so ugly that when she walked out of her house, the neighbours called animal control.',
-      'Yo mama so ugly when she went into a haunted house... she came out with a job application.',
-      'Yo mama is so short that she can limbo under the door.',
-      'Yo mama is so ugly that it looks like she\s been bobbing for french fries.',
-      'Yo mama is so stupid that she tries to insult you with yo mama jokes.',
-      'Yo mama is such a ho, that she asked all the math majors to figure out g(f(your mom)) just so they could "f" her first.',
-      'Yo mama is so fat that she went to the fair and the kids thought she was a bouncy castle.',
-      'Yo mama is so fat that she influences the tides.',
-      'Yo mama is so stupid that when she took an IQ test, the results came out negative.',
-      'Yo mama is so nasty that her crabs use her tampon string as a bungee cord.',
-      'Yo mama is like a slaughter house - everybody\'s hanging their meat up in her.',
-      'Yo mama is so ugly that she makes blind children cry.',
-      'Yo mama is so fat that when she walked in front of the TV, I missed 3 seasons of Breaking Bad.',
-      'Yo mama is so square that she\'s got imaginary numbers on her social security card.',
-      'Yo mama is so skinny that she inspires crack whores to diet.',
-      'Yo mama is so fat that when she was born, she gave the hospital stretch marks.',
-      'Yo mama is so ugly that she\'s never seen herself \'cause the mirrors keep breaking.',
-      'Yo mama is so fat that the ratio of the circumference to her diameter is four.',
-      'Yo mama is so stupid that she thought Tupac Shakur was a Jewish holiday.',
-      'Yo mama is so fat that she cant reach into her back pocket.',
-      'Yo mama is so old that when God said "Let there be light" she was there to flick the switch.',
-      'Yo mama is so poor that the bank repossesed her cardboard box.',
-      'Yo mama\'s so fat that China uses her to block the internet.',
-      'Yo mama is so stupid that she put a quarter in a parking meter and waited for a gumball to come out.',
-      'Yo mama is so stupid that she brought a cup to the movie "Juice."',
-      'Yo mama is so ugly that when she plays Mortal Kombat, Scorpion tells her to "Stay Over There!"',
-      'You suck... yo mama does too, but she charges.',
-      'Yo mama is so fat that when she got hit by a bus, she said, "Who threw that rock at me?"',
-      'Yo mama is so stupid that she thought Dunkin\' Donuts was a basketball team.',
-    ];
-    const result = Math.floor(Math.random() * momJokes.length);
-    answer = momJokes[result]
-    message.reply(`[Mom joke] ${answer}`)
-  },
-};
+    const fetch = require('node-fetch');
+    fetch(`https://api.yomomma.info/`)
+
+                .then(resp => resp.json())
+            .then((data) => {
+              message.reply(data.joke)
+          })
+
+   
+        }
+      }
