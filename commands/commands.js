@@ -54,7 +54,8 @@ module.exports = {
           {name: 'Remind (you can only remind yourself for now)', value: '$remind [time] [reminder]'},
           {name: 'See the first message of a channel', value: '$firstmessage, $firstmsg'},
           {name: 'Translate something into English', value: '$translate [message]'},
-          {name: 'Emojify a message', value: '$emojify [message]'}
+          {name: 'Emojify a message', value: '$emojify [message]'},
+          {name: 'Check the join position of a member', value: '$joinposition, $joinpos @[member]'}
       )  
       const page5 = new discord.MessageEmbed()
       .setTitle(`${client.user.username} Commands List`)
