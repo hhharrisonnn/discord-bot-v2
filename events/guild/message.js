@@ -1,4 +1,4 @@
-//require('dotenv').config();
+require('dotenv').config();
 const profileModel = require('../../models/profileSchema');
 const cooldowns = new Map();
 
@@ -28,7 +28,7 @@ module.exports = async (Discord, client, message) => {
   const cmd = args.shift().toLowerCase();
 
   const command = client.commands.get(cmd) || client.commands.find(a => a.aliases && a.aliases.includes(cmd));
-
+  if(!command) return;
   const validPermissions = [
     "ADMINISTRATOR",
     "CREATE_INSTANT_INVITE",
@@ -100,7 +100,7 @@ module.exports = async (Discord, client, message) => {
   try {
     command.execute(message, args, cmd, client, Discord, profileData);
   } catch(err) {
-    message.reply("I do not recognise this command.");
+    message.reply("Error while sending command.");
     console.log(err);
   }
 };
