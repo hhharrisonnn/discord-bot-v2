@@ -8,7 +8,7 @@ module.exports = {
   description: "Shows list of commands.",
   execute(message, args, cmd, client, Discord) {
       const page1 = new discord.MessageEmbed()
-      .setTitle('TheCarbonBot Commands List')
+      .setTitle(`${client.user.username} Commands List`)
       .setDescription('💰')
       .addFields(
           {name: 'Claim daily bonus 2000 coins', value: '$daily'},
@@ -20,7 +20,7 @@ module.exports = {
           {name: 'Give coins to someone', value: '$givecoins, $gc, $givepoints, $gp'},
       )
       const page2 = new discord.MessageEmbed()
-      .setTitle('TheCarbonBot Commands List')
+      .setTitle(`${client.user.username} Commands List`)
       .setDescription('🎱🎮🎲')
       .addFields(
           {name: '8Ball', value: '$8ball [question]'},
@@ -31,7 +31,7 @@ module.exports = {
       )   
 
       const page3 = new discord.MessageEmbed()
-      .setTitle('TheCarbonBot Commands List')
+      .setTitle(`${client.user.username} Commands List`)
       .setDescription('🏹')
       .addFields(
           {name: 'Hunt weebs', value: '$huntweebs, $hw'},
@@ -41,7 +41,7 @@ module.exports = {
 
 
       const page4 = new discord.MessageEmbed()
-      .setTitle('TheCarbonBot Commands List')
+      .setTitle(`${client.user.username} Commands List`)
       .setDescription('Misc 🔣')
       .addFields(
           {name: 'Say', value: '$say #[channel] [message]'},
@@ -54,7 +54,7 @@ module.exports = {
           {name: 'Remind (you can only remind yourself for now)', value: '$remind [time] [reminder]'},
       )  
       const page5 = new discord.MessageEmbed()
-      .setTitle('TheCarbonBot Commands List')
+      .setTitle(`${client.user.username} Commands List`)
       .setDescription('🛠️')
       .addFields(
           {name: 'Change someone\'s nickname (MANAGE NICKNAMES ROLE ONLY)', value: '$nick, $nickname @[member] [new nickname]'},
