@@ -52,7 +52,8 @@ module.exports = {
           {name: 'Go AFK', value: '$afk'},
           {name: 'Return from AFK', value: '$nafk, $return, $rafk'},
           {name: 'Remind (you can only remind yourself for now)', value: '$remind [time] [reminder]'},
-          {name: 'See the first message of a channel', value: '$firstmessage, $firstmsg'}
+          {name: 'See the first message of a channel', value: '$firstmessage, $firstmsg'},
+          {name: 'Translate something into English', value: '$translate [message]'}
       )  
       const page5 = new discord.MessageEmbed()
       .setTitle(`${client.user.username} Commands List`)
