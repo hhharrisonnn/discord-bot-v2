@@ -28,7 +28,7 @@ module.exports = {
           {name: 'Fortune cookie', value: '$cookie, $fortunecookie'},
           {name: 'Check juice level😂', value: '$juice'},
           {name: 'Check cock size', value: '$cock'},
-          {name: 'uwufy youw message ! >.<', value: '$weebify, $uwu, $uwufy, $owo [message]'},
+          {name: 'UwU-fy youw message ! >.<', value: '$weebify, $uwu, $uwufy, $owo [message]'},
       )   
 
       const page3 = new discord.MessageEmbed()
