@@ -48,7 +48,6 @@ module.exports = {
           {name: 'Check your permissions', value: '$perms'},
           {name: 'Avatar/profile pic of a user', value: '$avatar, $profilepic, $pfp, $icon @[member]'},
           {name: 'Weather', value: '$weather [location]'},
-          {name: 'Purge (ADMIN ONLY, you cannot delete messages that are older than 14 days).', value: '$purge [number]'},
           {name: 'Go AFK', value: '$afk'},
           {name: 'Return from AFK', value: '$nafk, $return, $rafk'},
           {name: 'Remind (you can only remind yourself for now)', value: '$remind [time] [reminder]'},
