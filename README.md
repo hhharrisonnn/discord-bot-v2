@@ -2,7 +2,7 @@
 This is a multi-function Discord bot, with fun and moderation commands. This bot could be self-hosted either on a dedicated server or cloud hosting like AWS.
 
 ## Commands
-*You can set your own prefix [here](#env-file)*
+*You can set your own prefix [here](#env)*
 - `help`
 
 ### Currency💰
