@@ -55,7 +55,8 @@ module.exports = {
           {name: 'See the first message of a channel', value: '$firstmessage, $firstmsg'},
           {name: 'Translate something into English', value: '$translate [message]'},
           {name: 'Emojify a message', value: '$emojify [message]'},
-          {name: 'Check the join position of a member', value: '$joinposition, $joinpos @[member]'}
+          {name: 'Check the join position of a member', value: '$joinposition, $joinpos @[member]'},
+          {name: 'Check conversion rate between two currencies', value: '$currency, $convert, $exchangerate, $er [amount] [currency1] to/=> [currency2]'},
       )  
       const page5 = new discord.MessageEmbed()
       .setTitle(`${client.user.username} Commands List`)
