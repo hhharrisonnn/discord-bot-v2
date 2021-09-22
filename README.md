@@ -55,18 +55,11 @@ git clone https://github.com/hhharrisonnn/discord-bot-v2.git
 ### Dependencies
 To get the dependencies, run this in /discord-bot-v2:
 ```
-npm i discord.js@12.5.1 discord.js-pagination dotenv fs mongoose node-fetch translate-google weather-js
+npm install
 ```
 or
 ```
-npm i discord.js@12.5.1
-npm i discord.js-pagination
-npm i dotenv
-npm i fs
-npm i mongoose
-npm i node-fetch
-npm i translate-google
-npm i weather-js
+npm i
 ```
 
 ### MongoDB
