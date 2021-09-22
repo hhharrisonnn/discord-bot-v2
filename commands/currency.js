@@ -4,7 +4,7 @@ module.exports = {
     permissions: [],
     cooldown: 300,
     aliases: ['convert', 'exchangerate', 'er'],
-    description: 'converation rate between 2 currencies',
+    description: 'Conversion rate between 2 currencies.',
     
     async execute(message, args, cmd, client, Discord, profileData) {
         const currency1 =  args.slice(1, 2).toString().toUpperCase('')
