@@ -2,7 +2,7 @@
 This is a multi-function Discord bot, with fun and moderation commands. This bot could be self-hosted either on a dedicated server or cloud hosting like AWS.
 
 ## Commands
-*You can set your own prefix [here](#env)*
+*You can set your own prefix [here](#env)*.
 - `help`
 
 ### Currency💰
@@ -35,6 +35,8 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `translate` - Translate something into English
 - `emojify` - Emojify a message
 - `joinposition` - Check the join position of a member
+- `currency` - Check the conversion rate between two currencies
+- `subage` - Check the Twitch subage of a user to a channel
 
 ### Moderation⚒
 - `nick` - Change someone's nickname
@@ -44,7 +46,9 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `purge` - Purge the chat
 
 ## Setup
-Install the dependencies using npm. *note: this will not work with Discord.js V13*
+Install the dependencies using npm. 
+
+*note: this will not work with Discord.js V13*.
 
 ### Source code
 To get the source code, run:
@@ -53,7 +57,7 @@ git clone https://github.com/hhharrisonnn/discord-bot-v2.git
 ```
 
 ### Dependencies
-To get the dependencies, run this in /discord-bot-v2:
+To get the dependencies, run:
 ```
 npm install
 ```
@@ -66,6 +70,12 @@ npm i
 Setup a database using MongoDB:
 1. Create a cluster
 2. Connect your application and get the MongoDB SRV
+3. Add the MongoDB SRV into the [.env](#env) file
+
+### ExchangeRate-API
+You will need an ExchangeRate-API key for [currency.js](https://github.com/hhharrisonnn/discord-bot-v2/blob/master/commands/currency.js):
+1. Create an ExchangeRate-API account [here](https://app.exchangerate-api.com/sign-up)
+2. Add the ExchangeRate key into the [.env](#env) file
 
 ### .env
 1. Rename `.envexample` to `.env` 
@@ -73,5 +83,6 @@ Setup a database using MongoDB:
 ```
 DISCORD_TOKEN = "YourDiscordToken"
 MONGODB_SRV = "mongodb+srv://{yourinfo}"
+EXCHANGERATE_KEY = "YourExchangeRateKey"
 PREFIX = "e.g: !"
 ```
