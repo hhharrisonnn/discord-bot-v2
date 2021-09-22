@@ -57,6 +57,7 @@ module.exports = {
           {name: 'Emojify a message', value: '$emojify [message]'},
           {name: 'Check the join position of a member', value: '$joinposition, $joinpos @[member]'},
           {name: 'Check conversion rate between two currencies', value: '$currency, $convert, $exchangerate, $er [amount] [currency1] to/=> [currency2]'},
+          {name: 'Check the Twitch subage of a user to a channel', value: '$subage, $sa [user] [channel]'},
       )  
       const page5 = new discord.MessageEmbed()
       .setTitle(`${client.user.username} Commands List`)
