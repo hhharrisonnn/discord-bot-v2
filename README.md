@@ -75,10 +75,10 @@ Setup a database using MongoDB:
 2. Connect your application and get the MongoDB SRV
 
 ### .env
-A .env file is used for your tokens and custom prefix.
-Create a .env file and fill in the following:
+1. Rename `.envexample` to `.env` 
+2.  Add in the values for each:
 ```
-DISCORD_TOKEN = 
-MONGODB_SRV = 
-PREFIX = 
+DISCORD_TOKEN = "YourDiscordToken"
+MONGODB_SRV = "mongodb+srv://{yourinfo}"
+PREFIX = "e.g: !"
 ```
