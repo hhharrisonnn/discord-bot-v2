@@ -43,10 +43,10 @@ module.exports = {
              if (subscriberCheck.data["subscribed"] == false) {
                  let oldsub = subscriberCheck.data["cumulative"];
                  if (oldsub["months"] === 0) {
-                     message.reply( `${user} has never been Subscribed to ${broadcaster} :| .`)
+                     message.reply( `${user} has never been subscribed to ${broadcaster} :| .`)
                  }
                  else {
-                    message.reply( `${user} is not Subscribed to ${broadcaster}, But has been Previously for a Total of ${oldsub["months"]} months!`);
+                    message.reply( `${user} is not subscribed to ${broadcaster}, But has been previously for a total of ${oldsub["months"]} months!`);
                  }
              }
              else {
@@ -56,14 +56,14 @@ module.exports = {
                  const ms = new Date().getTime() - Date.parse(subscriberData["endsAt"]);
      
                  if (subscriberData["type"] === "prime") {
-                     client.say( `${user} is currently subscribed to ${broadcaster}ﾠwith a tier 1 prime sub for a total of ${subscriberLength["months"]} months! They are currently on a ${subscriberStreak["months"]} months streak. The sub ends/renews in ${sa.humanizeDuration(ms)}.`);
+                     client.say( `${user} is currently subscribed to ${broadcaster} ﾠwith a tier 1 prime sub for a total of ${subscriberLength["months"]} months! They are currently on a ${subscriberStreak["months"]} months streak. The sub ends/renews in ${sa.humanizeDuration(ms)}.`);
                  }
                  if (subscriberData["type"] === "paid") {
-                    message.reply( `${user} is currently subscribed to ${broadcaster}ﾠwith a tier ${subscriberData["tier"]} sub for a total of ${subscriberLength["months"]} months! They are currently on a ${subscriberStreak["months"]} months streak. The sub ends/renews in ${sa.humanizeDuration(ms)}.`);
+                    message.reply( `${user} is currently subscribed to ${broadcaster} ﾠwith a tier ${subscriberData["tier"]} sub for a total of ${subscriberLength["months"]} months! They are currently on a ${subscriberStreak["months"]} months streak. The sub ends/renews in ${sa.humanizeDuration(ms)}.`);
                  }
                  if (subscriberData["type"] === "gift") {
                      let gifter = subscriberData["gift"]["name"];
-                     message.reply( `${user} is currently subscribed to ${broadcaster}ﾠwith a tier ${subscriberData["tier"]} sub, gifted by ${gifter} for a total of ${subscriberLength["months"]} months! They are currently on a ${subscriberStreak["months"]} months streak. The sub ends/renews in ${sa.humanizeDuration(ms)}.`);
+                     message.reply( `${user} is currently subscribed to ${broadcaster}ﾠ with a tier ${subscriberData["tier"]} sub, gifted by ${gifter} for a total of ${subscriberLength["months"]} months! They are currently on a ${subscriberStreak["months"]} months streak. The sub ends/renews in ${sa.humanizeDuration(ms)}.`);
                  }
              }
           }
