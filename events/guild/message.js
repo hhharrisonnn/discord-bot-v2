@@ -6,7 +6,7 @@ module.exports = async (Discord, client, message) => {
   const prefix = process.env.PREFIX;
   if(!message.content.startsWith(prefix) || message.author.bot) return;
 
-  let profileData;
+   let profileData;
   try {
     profileData = await profileModel.findOne({ userID: message.author.id });
     if(!profileData) {
@@ -22,7 +22,26 @@ module.exports = async (Discord, client, message) => {
     }
   } catch(err) {
     console.log(err)
-  }
+  } 
+
+  let mentionData;
+    try {
+      var member = message.mentions.members.first()
+      mentionData = await profileModel.findOne({ userID: member.id });
+      if(!mentionData) {
+        let profile = await profileModel.create({
+          userID: message.mentions.users.first().id,
+          serverID: message.guild.id,
+          coins: 1000,
+          bank: 0,
+          huntweebs: 0,
+          killweebs: 0,
+        });
+        profile.save();
+      }
+    } catch(err) {
+      console.log(err)
+    }
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const cmd = args.shift().toLowerCase();
@@ -98,7 +117,7 @@ module.exports = async (Discord, client, message) => {
   setTimeout(() => timeStamps.delete(message.author.id), cooldownAmount);
 
   try {
-    command.execute(message, args, cmd, client, Discord, profileData);
+    command.execute(message, args, cmd, client, Discord, mentionData, profileData);
   } catch(err) {
     message.reply("Error while sending command.");
     console.log(err);
