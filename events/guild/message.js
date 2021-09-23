@@ -24,24 +24,6 @@ module.exports = async (Discord, client, message) => {
     console.log(err)
   } 
 
-  let mentionData;
-    try {
-      var member = message.mentions.members.first()
-      mentionData = await profileModel.findOne({ userID: member.id });
-      if(!mentionData) {
-        let profile = await profileModel.create({
-          userID: message.mentions.users.first().id,
-          serverID: message.guild.id,
-          coins: 1000,
-          bank: 0,
-          huntweebs: 0,
-          killweebs: 0,
-        });
-        profile.save();
-      }
-    } catch(err) {
-      console.log(err)
-    }
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const cmd = args.shift().toLowerCase();
@@ -81,7 +63,12 @@ module.exports = async (Discord, client, message) => {
     "MANAGE_WEBHOOKS",
     "MANAGE_EMOJIS",
   ]
-
+  let mentionData;
+  try {
+    mentionData = await profileModel.findOne({ userID: message.mentions.members.first().id });
+  } catch(err) {
+    console.log(err)
+  } 
   if (command.permissions.length) {
     let invalidPerms = []
     for(const perm of command.permissions) {
@@ -117,7 +104,7 @@ module.exports = async (Discord, client, message) => {
   setTimeout(() => timeStamps.delete(message.author.id), cooldownAmount);
 
   try {
-    command.execute(message, args, cmd, client, Discord, mentionData, profileData);
+    command.execute(message, args, cmd, client, Discord, profileData, mentionData);
   } catch(err) {
     message.reply("Error while sending command.");
     console.log(err);
