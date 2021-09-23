@@ -3,7 +3,7 @@ module.exports = {
     name: 'urban',
     permissions: [],
     aliases: ['urbandictionary', 'ud'],
-    cooldown: 0,
+    cooldown: 5,
     description: "",
     async execute(message, args, cmd, client, Discord, profileData, mentionData) {
 
