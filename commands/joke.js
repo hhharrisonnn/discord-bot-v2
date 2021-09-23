@@ -14,7 +14,13 @@ fetch("https://icanhazdadjoke.com/", {
 .then(response => response.json())
 .then(data => {
     const joke = data.joke;
-    message.reply(`${joke} <:haHAA:890018217161019402>`);
+    const embed = new Discord.MessageEmbed()
+    .setColor('#964B00')
+    .setTitle(`*${joke}*`, '📜')
+    .setAuthor(`📜`)
+    .setThumbnail('https://i.nuuls.com/t0vKj.png')
+    .setURL(joke[0].permalink)
+  message.channel.send(embed);;
 });
         }
     }
