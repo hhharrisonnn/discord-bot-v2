@@ -7,7 +7,7 @@ module.exports = {
     description: "",
     async execute(message, args, cmd, client, Discord, profileData, mentionData) {
         try {
-        term = args.join(" ")
+        term = args[0]
         let res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${term}`);
 		res = await res.json();
              const embed = new Discord.MessageEmbed()

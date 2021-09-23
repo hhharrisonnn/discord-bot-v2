@@ -11,15 +11,15 @@ module.exports = {
 
         fetch(`https://api.urbandictionary.com/v0/define?term=${term}`)
         .then(res => res.json())
-        .then(json => {
+        .then(data => {
             const embed = new Discord.MessageEmbed()
           .setColor('#FEC47F')
           .setThumbnail('https://i.imgur.com/8l0d07Q.png')
           .setAuthor(`${term}:`, 'https://i.nuuls.com/AJOBC.png')
           .setDescription(
-            `***${json.list[Math.floor(Math.random() * 1)].definition}***`
+            `***${data.list[0].definition.replace(/([.*\[\]\/])/g, '') }***`
           )
-          .setURL(json.list[0].permalink)
+          .setURL(data.list[0].permalink)
           .setTimestamp()
             .setFooter('Powered by Urban Dictionary', '');
         message.channel.send(embed);
