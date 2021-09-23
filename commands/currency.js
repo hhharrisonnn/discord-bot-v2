@@ -18,7 +18,16 @@ module.exports = {
             fetch(`${host}`)
             .then(resp => resp.json())
         .then((data) => {
-            message.reply(`${amount} ${currency1} = ${data.conversion_result} ${currency2}`);
+            const embed = new Discord.MessageEmbed()
+          .setColor('#FEC47F')
+          .setTitle(`${amount} ${currency1} = ${data.conversion_result} ${currency2}`)
+          .setAuthor(
+            'ExchangeRate',
+            'https://i.nuuls.com/d6PLz.png',
+            'https://www.exchangerate-api.com/'
+          )
+        
+        message.channel.send(embed);
           })
         }
         
@@ -29,10 +38,16 @@ module.exports = {
             fetch(`${host}`)
              .then(resp => resp.json())
         .then((data) => {
-            console.log(data)
-            message.reply(`${amount} ${currency1} = ${data.conversion_result} ${currency2}`);
-            
+            const embed = new Discord.MessageEmbed()
+          .setColor('#FEC47F')
+          .setTitle(`${amount} ${currency1} = ${data.conversion_result} ${currency2}`)
+          .setAuthor(
+            'ExchangeRate',
+            'https://i.nuuls.com/d6PLz.png',
+            'https://www.exchangerate-api.com/'
+          )
         
+        message.channel.send(embed);
         })
     }
 }
@@ -42,6 +57,3 @@ module.exports = {
           
         }
         
-
-
-    
