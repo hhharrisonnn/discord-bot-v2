@@ -13,10 +13,11 @@ module.exports = {
              const embed = new Discord.MessageEmbed()
           .setColor('#ADD8E6')
           .setDescription(`**${res[0].meanings[0].definitions[0].definition}**`, '📜')
-          .setAuthor(`**${term}:**`, 'https://i.nuuls.com/gRiBb.png')
+          .setAuthor(`${term}:`, 'https://i.nuuls.com/AJOBC.png')
           .setThumbnail(`https://i.nuuls.com/hU80f.png`)
+          .setTimestamp()
+          .setFooter('Powered by  Free Dictionary API', '');
         message.channel.send(embed); 
-        
     } catch (err) {
 		message.reply(`definition not found/invalid`);
      }
