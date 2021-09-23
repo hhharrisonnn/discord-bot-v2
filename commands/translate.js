@@ -3,7 +3,7 @@ const translate = require('translate-google');
 module.exports = {
   name: 'translate',
   permissions: [],
-  cooldown: 0,
+  cooldown: 5,
   aliases: [],
   description: 'Translate something into English.',
   execute(message, args, cmd, client, Discord, profileData) {
