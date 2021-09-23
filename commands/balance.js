@@ -4,7 +4,7 @@ module.exports = {
   permissions: [],
   cooldown: 0,
   description: 'Check balance.',
-  async execute(message, args, cmd, client, Discord, mentionData, profileData) {
+  async execute(message, args, cmd, client, Discord, profileData, mentionData) {
     if (message.mentions.members.first()) { 
   const newEmbed = new Discord.MessageEmbed()
   .setColor('#304281')
@@ -27,4 +27,4 @@ module.exports = {
   message.channel.send(newEmbed)
   } 
 }
-};
+}
