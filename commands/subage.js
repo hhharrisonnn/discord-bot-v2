@@ -45,30 +45,25 @@ module.exports = {
                  let oldsub = subscriberCheck.data["cumulative"];
                  if (oldsub["months"] === 0) {
                      const embed = new Discord.MessageEmbed()
-                .setColor('#FF0000')
-                .setTitle(`${user} has never been subscribed to ${broadcaster} :|`)
-                .setAuthor(
-                  'Twitch',
-                 'https://i.nuuls.com/Om2N3.png',
-                 'https://twitch.tv/'
-                  )
-              .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
-              .setTimestamp()
-                .setFooter('Powered by api.ivr.fi', '');
+                .setColor('#A020F0')
+                    .setTitle(`${user} => ${broadcaster}`)
+                    .setThumbnail('https://i.nuuls.com/Om2N3.png')
+                    .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‎‏‎‏‏‎‏‏‎Status', `Has never been subscribed`, true)
+                    .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
+                    .setTimestamp()
+                    .setFooter('Powered by api.ivr.fi', '');
              message.channel.send(embed);
                  }
                  else {
                     const embed = new Discord.MessageEmbed()
-                .setColor('#FFA500')
-                .setTitle(`${user} is not Subscribed to ${broadcaster}, But has been Previously for a Total of ${oldsub["months"]} months!`)
-                .setAuthor(
-                  'Twitch',
-                 'https://i.nuuls.com/Om2N3.png',
-                 'https://twitch.tv/'
-                  )
-                .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
-                .setTimestamp()
-                .setFooter('Powered by api.ivr.fi', '');
+                .setColor('#A020F0')
+                    .setTitle(`${user} => ${broadcaster}`)
+                    .setThumbnail('https://i.nuuls.com/Om2N3.png')
+                    .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‎‏‎‏‏‎‏‏‎Status', `Not subbed`, true)
+                    .addField('Previously subbed for', `‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ${oldsub["months"]} months`, true)
+                    .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
+                    .setTimestamp()
+                    .setFooter('Powered by api.ivr.fi', '');
              message.channel.send(embed);
                  }
              }
@@ -81,13 +76,15 @@ module.exports = {
                  if (subscriberData["type"] === "prime") {
 
                     const embed = new Discord.MessageEmbed()
-                    .setColor('#00FF00')
-                    .setTitle(`**${user}** is currently subscribed to **${broadcaster}**ﾠwith a tier 1 prime sub for a total of **${subscriberLength["months"]} months!** They are currently on a **${subscriberStreak["months"]}** months streak. The sub ends/renews in **${sa.humanizeDuration(ms)}**.`)
-                    .setAuthor(
-                      'Twitch',
-                     'https://i.nuuls.com/Om2N3.png',
-                     'https://twitch.tv/'
-                      )
+                    .setColor('#A020F0')
+                    .setTitle(`${user} => ${broadcaster}`)
+                    .setThumbnail('https://i.nuuls.com/Om2N3.png')
+                    .addField('Status', `Subbed`, true)
+                    .addField('Type', `Prime`, true)
+                    .addField('Total', `${subscriberLength["months"]} months`, true)
+                    .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎Tier', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‏‏‎ ‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏${subscriberData["tier"]}`, true)
+                    .addField('Streak', `${subscriberStreak["months"]} months`, true)
+                    .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ Renews/Ends in', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ${sa.humanizeDuration(ms)}`)
                     .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
                     .setTimestamp()
                     .setFooter('Powered by api.ivr.fi', '');
@@ -97,13 +94,15 @@ module.exports = {
                  if (subscriberData["type"] === "paid") {
 
                     const embed = new Discord.MessageEmbed()
-                    .setColor('#00FF00')
-                    .setTitle(`**${user}** is currently subscribed to **${broadcaster}**ﾠwith a tier ${subscriberData["tier"]} sub for a total of **${subscriberLength["months"]} months!** They are currently on a ${subscriberStreak["months"]} months streak. The sub ends/renews in **${sa.humanizeDuration(ms)}**.`)
-                    .setAuthor(
-                      'Twitch',
-                     'https://i.nuuls.com/Om2N3.png',
-                     'https://twitch.tv/'
-                      )
+                    .setColor('#A020F0')
+                    .setTitle(`${user} => ${broadcaster}`)
+                    .setThumbnail('https://i.nuuls.com/Om2N3.png')
+                    .addField('Status', `Subbed`, true)
+                    .addField('Type', `Paid`, true)
+                    .addField('Total', `${subscriberLength["months"]} months`, true)
+                    .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎Tier', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‏‏‎ ‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏${subscriberData["tier"]}`, true)
+                    .addField('Streak', `${subscriberStreak["months"]} months`, true)
+                    .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ Renews/Ends in', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ${sa.humanizeDuration(ms)}`)
                     .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
                     .setTimestamp()
                     .setFooter('Powered by api.ivr.fi', '');
@@ -113,13 +112,19 @@ module.exports = {
                  if (subscriberData["type"] === "gift") {
                      let gifter = subscriberData["gift"]["name"];
                      const embed = new Discord.MessageEmbed()
-                    .setColor('#00FF00')
-                    .setTitle(`**${user}** is currently subscribed to **${broadcaster}**ﾠwith a tier ${subscriberData["tier"]} sub, gifted by **${gifter}** for a total of **${subscriberLength["months"]} months!** They are currently on a ${subscriberStreak["months"]} months streak. The sub ends/renews in **${sa.humanizeDuration(ms)}**.`)
-                    .setAuthor(
-                      'Twitch',
-                     'https://i.nuuls.com/Om2N3.png',
-                     'https://twitch.tv/'
-                      )
+                    .setColor('#A020F0')
+                    .setTitle(`${user} => ${broadcaster}`)
+                    .setThumbnail('https://i.nuuls.com/Om2N3.png')
+                     .addField('Status', `Subbed`, true)
+                     .addField('Type', `Gifted`, true)
+                     .addField('Total', `${subscriberLength["months"]} months`, true)
+                     .addField(' ‎‏‏‎ ‎ ‎‏‏‎‎‏‏‎Tier', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏${subscriberData["tier"]}`, true)
+                     .addField('Gifter', `${gifter}`, true)
+                     .addField('Streak', `${subscriberStreak["months"]} months`, true)
+                     .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎‏‏‎‎‏‏‎Renews/Ends in', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎‎‏‏‎‎‏‏‎ ‎‏‏ ‎‏${sa.humanizeDuration(ms)}`)
+                     
+
+                   /*  .setTitle(`**${user}** is currently subscribed to **${broadcaster}**ﾠwith a tier ${subscriberData["tier"]} sub, gifted by **${gifter}** for a total of **${subscriberLength["months"]} months!** They are currently on a ${subscriberStreak["months"]} months streak. The sub ends/renews in **${sa.humanizeDuration(ms)}**.`) */
                     .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
                     .setTimestamp()
                     .setFooter('Powered by api.ivr.fi', '');
