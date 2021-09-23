@@ -27,6 +27,7 @@ module.exports = {
       .setDescription('🎱🎮🎲')
       .addFields(
           {name: '8Ball', value: '8ball [question]'},
+          {name: 'Cringy joke', value: 'joke, dadjoke, hahaa'},
           {name: 'Mom joke', value: 'momjoke, mumjoke'},
           {name: 'Fortune cookie', value: 'cookie, fortunecookie'},
           {name: 'Check juice level😂', value: 'juice'},
@@ -57,12 +58,21 @@ module.exports = {
           {name: 'See the first message of a channel', value: 'firstmessage, firstmsg'},
           {name: 'Translate something into English', value: 'translate [message]'},
           {name: 'Emojify a message', value: 'emojify [message]'},
-          {name: 'Check the join position of a member', value: 'joinposition, joinpos @[member]'},
-          {name: 'Check conversion rate between two currencies', value: 'currency, convert, exchangerate, er [amount] [currency1] to/=> [currency2]'},
-          {name: 'Check the Twitch subage of a user to a channel', value: 'subage, sa [user] [channel]'},
       )
 
       const page5 = new discord.MessageEmbed()
+      .setTitle(`${client.user.username} Commands List (${prefix})`)
+      .setDescription('Misc 2 🔣')
+      .addFields(
+          {name: 'Check the join position of a member', value: 'joinposition, joinpos @[member]'},
+          {name: 'Check conversion rate between two currencies', value: 'currency, convert, exchangerate, er [amount] [currency1] to/=> [currency2]'},
+          {name: 'Check the Twitch subage of a user to a channel', value: 'subage, sa [user] [channel]'},
+          {name: 'Search Dictionary for a word', value: 'define, dictionary, dic [word]'},
+          {name: 'Search Urban Dictionary for a term', value: 'urban, urbandictionary, ud [term]'},
+          {name: 'Google translate something', value: 'translate [term] to [language]'},
+      )
+
+      const page6 = new discord.MessageEmbed()
       .setTitle(`${client.user.username} Commands List (${prefix})`)
       .setDescription('🛠️')
       .addFields(
@@ -78,7 +88,8 @@ module.exports = {
           page2,
           page3,
           page4,
-          page5
+          page5,
+          page6
       ]
 
       const emoji = ["⏪" , "⏩"]
