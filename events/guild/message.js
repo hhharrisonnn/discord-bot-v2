@@ -69,6 +69,14 @@ module.exports = async (Discord, client, message) => {
   } catch(err) {
     console.log(err)
   } 
+
+  let randomData;
+  try {
+    randomData = await profileModel.findOne({ userID: client.guilds.cache.get(process.env.SERVER_ID).members.cache.random().user.id });
+  } catch(err) {
+    console.log(err)
+  } 
+  
   if (command.permissions.length) {
     let invalidPerms = []
     for(const perm of command.permissions) {
@@ -104,7 +112,7 @@ module.exports = async (Discord, client, message) => {
   setTimeout(() => timeStamps.delete(message.author.id), cooldownAmount);
 
   try {
-    command.execute(message, args, cmd, client, Discord, profileData, mentionData);
+    command.execute(message, args, cmd, client, Discord, profileData, mentionData, randomData);
   } catch(err) {
     message.reply("Error while sending command.");
     console.log(err);
