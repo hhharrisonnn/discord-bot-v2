@@ -8,7 +8,26 @@ module.exports = {
     
     async execute(message, args, cmd, client, Discord, profileData) {
         const currency1 =  args.slice(1, 2).toString().toUpperCase('')
-        const amount = args[0].toUpperCase('')
+        var amount = args[0]
+        multiplier = args[0].substr(-1).toLowerCase();
+
+          if (multiplier.includes("k") || ("m") || ("b")) {
+          if (multiplier == "k") {
+
+             amount =  parseFloat(args[0]) * 1000;
+          }
+            else if (multiplier == "m") {
+             amount =  parseFloat(args[0]) * 1000000;
+            }
+            else if (multiplier == "b") {
+             amount =  parseFloat(args[0]) * 1000000000;
+            }
+            else if (multiplier = /\d+/) {
+              let appl = args[0].replace(/,/g, '')
+              amount = parseFloat(appl) * 1;
+            }
+          }
+        
         try {
             
           if (args.includes('to') || args.includes('=>')) {
