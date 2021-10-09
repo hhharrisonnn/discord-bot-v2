@@ -16,6 +16,6 @@ module.exports = {
       },
     }
     );
-    return message.channel.send(`${message.author.username} you have received *2000* coins as a daily bonus!`);
+    return message.reply('you have received *2000* coins as a daily bonus!');
   },
 };

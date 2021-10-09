@@ -5,14 +5,26 @@ module.exports = {
   aliases: ['mumjoke'],
   description: 'A joke about your mother.',
   execute(message, args, cmd, client, Discord, profileData) {
+    const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+    const images = [
+      'https://i.nuuls.com/_JNTi.gif',
+      'https://i.nuuls.com/HKHAa.png',
+      'https://i.nuuls.com/kDNn2.png'
+    ];
+    const result = Math.floor(Math.random() * images.length);
+    answer = images[result];
+
     const fetch = require('node-fetch');
-    fetch(`https://api.yomomma.info/`)
-
-                .then(resp => resp.json())
-            .then((data) => {
-              message.reply(data.joke)
-          })
-
-   
-        }
-      }
+    fetch('https://api.yomomma.info/')
+    .then(resp => resp.json())
+    .then((data) => {
+      const joke = data.joke;
+      const embed = new Discord.MessageEmbed()
+      .setColor(color)
+      .setTitle(`*${joke}*`)
+      .setAuthor(`Momjoke`)
+      .setImage(answer)
+      message.channel.send(embed);
+    });
+  }
+}

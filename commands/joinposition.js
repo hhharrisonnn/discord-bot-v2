@@ -1,4 +1,4 @@
-const { Client, Message } = require("discord.js");
+const { Client, Message } = require('discord.js');
 
 module.exports = {
   name: 'joinposition',
@@ -9,7 +9,7 @@ module.exports = {
   async execute(message, args, cmd, client, Discord, profileData) {
     const member = message.mentions.members.first();
 
-    if (!member) return message.reply("please specify a member.");
+    if (!member) return message.reply('please specify a member.');
 
     const members = message.guild.members.cache
       .sort((a, b) => a.joinedTimestamp - b.joinedTimestamp)
@@ -21,8 +21,6 @@ module.exports = {
       }
     });
 
-    message.channel.send(
-      `${member} is the ${await position}th member to join the server.`
-    );
+    message.reply(`${member} is number ${await position} to join the server.`);
   },
 };

@@ -9,7 +9,7 @@ module.exports = {
     
     if (!nickname.includes('[AFK]')) {
       message.member.setNickname(`[AFK] ${nickname}`);
-      message.reply('is now AFK.')
+      message.reply('is now AFK.');
     } else {
       message.reply('you are already afk!');
     }

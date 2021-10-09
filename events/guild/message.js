@@ -21,7 +21,7 @@ module.exports = async (Discord, client, message) => {
       profile.save();
     }
   } catch(err) {
-    console.log(err)
+    console.log(err);
   }
 
   const args = message.content.slice(prefix.length).split(/ +/);
@@ -64,7 +64,7 @@ module.exports = async (Discord, client, message) => {
   ]
 
   if (command.permissions.length) {
-    let invalidPerms = []
+    let invalidPerms = [];
     for(const perm of command.permissions) {
       if (!validPermissions.includes(perm)) {
         return console.log(`Invalid Permissions ${perm}`);
@@ -74,7 +74,7 @@ module.exports = async (Discord, client, message) => {
       }
     }
     if (invalidPerms.length) {
-      return message.channel.send(`Missing Permissions: \` ${invalidPerms}\``);
+      return message.reply(`Missing Permissions: \`${invalidPerms}\``);
     }
   }
 
@@ -100,7 +100,7 @@ module.exports = async (Discord, client, message) => {
   try {
     command.execute(message, args, cmd, client, Discord, profileData);
   } catch(err) {
-    message.reply("Error while sending command.");
+    message.reply('Error while sending command.');
     console.log(err);
   }
 };

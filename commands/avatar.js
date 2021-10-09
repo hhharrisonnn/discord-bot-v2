@@ -6,15 +6,14 @@ module.exports = {
   aliases: ['icon', 'pfp', 'profilepic'],
   description: 'Return a user(s) avatar picture.',
   execute(message, args, cmd, client, Discord) {
+    const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
 
-      if (!message.mentions.users.size) {
-          return message.channel.send(`**Your Avatar: ** ${message.author.displayAvatarURL({ dynamic: true })}`);
-      }
+    const user = message.mentions.users.first() || message.author;
 
-      const avatar_list = message.mentions.users.map(user => {
-          return `**${user.username}'s Avatar: ** ${user.displayAvatarURL({ dynamic: true })}`;
-      });
-
-      message.channel.send(avatar_list);
+    const embed = new Discord.MessageEmbed()
+    .setColor(color)
+    .setAuthor(`${user.username}'s Avatar`)
+    .setImage(user.displayAvatarURL({ dynamic: true }));
+    message.channel.send(embed);
   }
 }

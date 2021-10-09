@@ -16,6 +16,7 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 
 ### Games🎱🎮🎲
 - `8ball` - 8Ball answers a question
+- `joke` - Cringy joke
 - `momjoke` - Mom joke
 - `cookie` - Fortune cookie
 - `juice` - Check juice level
@@ -28,6 +29,7 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `say` - Make the bot say something
 - `perms` - Check permissions
 - `avatar` - Avatar/profile picture of a user
+- `weather` - Check the weather of a location
 - `afk` - Go AFK
 - `nafk` - Return from AFK
 - `remind` - Set a reminder
@@ -37,6 +39,8 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `joinposition` - Check the join position of a member
 - `currency` - Check the conversion rate between two currencies
 - `subage` - Check the Twitch subage of a user to a channel
+- `define` - Get the definition of a word
+- `urban` - Get the Urban definition of a word
 
 ### Moderation⚒
 - `nick` - Change someone's nickname
@@ -78,11 +82,17 @@ You will need an ExchangeRate-API key for [currency.js](https://github.com/hhhar
 2. Add the ExchangeRate key into the [.env](#env) file
 
 ### .env
-1. Rename `.envexample` to `.env` 
-2.  Add in the values for each:
+1. Create a `.env` file to store your tokens 
+2. Add in the values for each:
 ```
-DISCORD_TOKEN = "YourDiscordToken"
-MONGODB_SRV = "mongodb+srv://{yourinfo}"
-EXCHANGERATE_KEY = "YourExchangeRateKey"
-PREFIX = "e.g: !"
+DISCORD_TOKEN = <YourDiscordToken>
+MONGODB_SRV = <mongodb+srv://{yourinfo}>
+EXCHANGERATE_KEY = <YourExchangeRateKey>
+PREFIX = <yourPrefix>
+```
+
+### Starting the bot
+Start the bot by typing:
+```
+node .
 ```

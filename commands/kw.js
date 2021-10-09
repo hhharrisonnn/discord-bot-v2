@@ -1,4 +1,4 @@
-const profileModel = require("../models/profileSchema");
+const profileModel = require('../models/profileSchema');
 
 module.exports = {
   name: 'kw',
@@ -8,16 +8,16 @@ module.exports = {
   description: 'Kill weebs that have been caged.',
   async execute(message, args, cmd, client, Discord, profileData) {
     let amount = args[0];
-    if(!args[0]) return message.channel.send('Please enter the number of weebs you want to kill :)')
-    if(amount.toLowerCase() == "all") {
-      amount = profileData.huntweebs
+    if (!args[0]) return message.reply('enter the number of weebs you want to kill :)');
+    if (amount.toLowerCase() == 'all') {
+      amount = profileData.huntweebs;
     }
-    if(amount % 1 != 0 || amount <= 0) {
-      return message.channel.send('Please enter a valid amount of weebs to kill :)')
+    if (amount % 1 != 0 || amount <= 0) {
+      return message.reply('enter a valid amount of weebs to kill :)');
     } 
 
     try {
-      if(amount > profileData.huntweebs) return message.channel.send(`You don't have that many weebs in the cage to kill :(`);
+      if (amount > profileData.huntweebs) return message.reply(`you don't have that many weebs in the cage to kill :(`);
       await profileModel.findOneAndUpdate({
         userID: message.author.id
       }, {
@@ -28,9 +28,9 @@ module.exports = {
       });
       let killed = profileData.killweebs + Number(amount);
       
-      return message.channel.send(`${message.author.username} has killed ${amount} weebs. ${killed} have already been killed by ${message.author.username}. Keep up the good work!`)
-    }catch(err) {
-      console.log(err)
+      return message.reply(`has killed ${amount} weebs. ${killed} have already been killed by ${message.author}. Keep up the good work!`);
+    } catch(err) {
+      console.log(err);
     }
   },
 }

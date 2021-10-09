@@ -1,55 +1,54 @@
 module.exports = {
   name: 'perms',
   permissions: [],
-  cooldown: 86400,
-  description: "This is a check permissions command.",
+  cooldown: 300,
+  description: 'This is a check permissions command.',
   execute(message, args, cmd, client, Discord) {
-    
+    const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+
     if (message.member.permissions.has("ADMINISTRATOR")) {
-      var admin = 'Yes'
+      var admin = 'Yes';
     } else {
-      var admin = 'No'
+      var admin = 'No';
     }
     if (message.member.permissions.has("KICK_MEMBERS")) {
-      var kick = 'Yes'
+      var kick = 'Yes';
     } else {
-      var kick = 'No'
+      var kick = 'No';
     }
     if (message.member.permissions.has("BAN_MEMBERS")) {
-      var ban = 'Yes'
+      var ban = 'Yes';
     } else {
-      var ban = 'No'
+      var ban = 'No';
     }
     if (message.member.permissions.has("MANAGE_CHANNELS")) {
-      var manage_channels = 'Yes'
+      var manage_channels = 'Yes';
     } else {
-      var manage_channels = 'No'
+      var manage_channels = 'No';
     }
     if (message.member.permissions.has("VIEW_AUDIT_LOG")) {
-      var audit = 'Yes'
+      var audit = 'Yes';
     } else {
-      var audit = 'No'
+      var audit = 'No';
     }
     if (message.member.permissions.has("MANAGE_MESSAGES")) {
-      var manage_messages = 'Yes'
+      var manage_messages = 'Yes';
     } else {
-      var manage_messages = 'No'
+      var manage_messages = 'No';
     }
     if (message.member.permissions.has("DEAFEN_MEMBERS")) {
-      var deafen = 'Yes'
+      var deafen = 'Yes';
     } else {
-      var deafen = 'No'
+      var deafen = 'No';
     }
     if (message.member.permissions.has("MOVE_MEMBERS")) {
-      var move = 'Yes'
+      var move = 'Yes';
     } else {
-      var move = 'No'
+      var move = 'No';
     }
 
-
-    //embed for perms
     const permsEmbed = new Discord.MessageEmbed()
-    .setColor('#304281')
+    .setColor(color)
     .setTitle('Perms')
     .addFields(
       {name: 'Admin', value: `${admin}`},
@@ -61,7 +60,6 @@ module.exports = {
       {name: 'Deafen memebers', value: `${deafen}`},
       {name: 'Move members', value: `${move}`},
     ) 
-
-    message.channel.send(permsEmbed)
+    message.channel.send(permsEmbed);
   }
 }

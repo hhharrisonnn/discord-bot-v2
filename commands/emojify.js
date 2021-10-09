@@ -7,7 +7,7 @@ module.exports = {
   aliases: [''],
   description: 'Emojify a message',
   async execute(message, args, cmd, client, Discord, profileData) {
-    if(!args.length) return message.reply('Please enter a message to emojify.');
+    if(!args.length) return message.reply('please enter a message to emojify.');
     const specialCodes = {
       '0': ':zero:',
       '1': ':one:',

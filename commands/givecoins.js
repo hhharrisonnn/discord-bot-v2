@@ -1,4 +1,4 @@
-const profileModel = require("../models/profileSchema");
+const profileModel = require('../models/profileSchema');
 
 module.exports = {
   name: 'givecoins',
@@ -13,7 +13,7 @@ module.exports = {
     if (!args[1]) {
       message.reply('please enter a valid amount of coins to give.');
     }
-    if (amount.toLowerCase() == "all") {
+    if (amount.toLowerCase() == 'all') {
       amount = profileData.coins;
     }
     if (amount % 1 != 0 || amount <= 0) {

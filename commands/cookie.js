@@ -2,7 +2,7 @@ module.exports = {
   name: 'cookie',
   permissions: [],
   cooldown: 86400,
-  aliases: ['fortunecookie'],
+  aliases: ['fortune', 'fortunecookie'],
   description: 'Fortune cookies.',
   execute(message, args, cmd, client, Discord, profileData) {
     const fortunes = [
@@ -362,7 +362,7 @@ module.exports = {
       'Your work interests can capture the highest status or prestige.',
     ];
     const result = Math.floor(Math.random() * fortunes.length);
-    answer = fortunes[result]
-    message.reply(`[Fortune] ${answer}`)
+    answer = fortunes[result];
+    message.reply(answer);
   },
 };

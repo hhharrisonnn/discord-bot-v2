@@ -1,16 +1,17 @@
 module.exports = {
   name: 'ban',
-  permissions: ["ADMINISTRATOR"],
+  permissions: ["BAN_MEMBERS"],
   cooldown: 0,
-  description: "This command bans a member.",
+  description: 'This command bans a member.',
   execute(message, args) {
-    const member = message.mentions.users.first();
-    if (member) {
-      const memberTarget = message.guild.members.cache.get(member.id);
-      memberTarget.ban();
-      message.channel.send('User has been banned.')
-    } else {
-      message.channel.send('You need to mention a member to ban them.');
-    }
+    let banner = message.author;
+    let member = message.mentions.members.first();
+    if (!member) return message.reply('you need to mention a member to ban them.');
+    let reason = args.slice(1).join(' ');
+    if (!reason) reason = 'No Reason Given';
+    if (!member.bannable) return message.reply('this member is not bannable');
+    
+    member.ban({reason: `Banned by: ${banner.tag} Banner ID: ${banner} Reason: ${reason}`});
+    message.reply(`${member} ID: ${member.id} has been banned.`);
   }
 }

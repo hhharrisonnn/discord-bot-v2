@@ -10,7 +10,7 @@ module.exports = {
     
     if (nickname.includes('[AFK]')) {
       message.member.setNickname(`${removeAFK}`);
-      message.reply('is no longer AFK.')
+      message.reply('is no longer AFK.');
     } else {
       message.reply('you have already returned!');
     }

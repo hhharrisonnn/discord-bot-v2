@@ -1,7 +1,7 @@
-//require('dotenv').config();
+require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();

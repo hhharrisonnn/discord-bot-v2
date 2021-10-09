@@ -7,20 +7,18 @@ module.exports = {
   aliases: [],
   description: 'Ask a question.',
   async execute(message, args, cmd, client, Discord, profileData) {
-    if(!args[0]) return message.channel.send('Please as a full question.');
+    if (!args[0]) return message.reply('please ask a full question.');
+    const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
     const replies = ['Yes', 'No', 'Definitely', 'Ask again later'];
 
     const result = Math.floor(Math.random() * replies.length);
     const question = args.join(' ');
-
-    if(message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS')) {
-      const embed = new MessageEmbed()
-      .setAuthor('🎱 The 8 Ball says...')
-      .setColor('#304281').addField('Question:', question)
-      .addField('Answer:', replies[result]);
-      await message.channel.send(embed);
-    } else {
-      await message.channel.send(`**Question:**\n${question}\n**Answer:**\n${replies[result]}`);
-    }
+    
+    const embed = new MessageEmbed()
+    .setAuthor('🎱 The 8 Ball says...')
+    .setColor(color)
+    .addField('Question:', question)
+    .addField('Answer:', replies[result]);
+    await message.channel.send(embed);
   },
 };

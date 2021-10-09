@@ -1,4 +1,4 @@
-const profileModel = require('../models/profileSchema')
+const profileModel = require('../models/profileSchema');
 
 module.exports = {
   name: 'hw',
@@ -18,6 +18,6 @@ module.exports = {
       },
     }
     );
-    return message.channel.send(`${message.author.username} managed to hunt ${weebs} weebs and caged them!`);
+    return message.reply(`managed to hunt ${weebs} weebs and caged them!`);
   },
 };
