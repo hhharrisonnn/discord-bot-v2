@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: '8ball',
   permissions: [],
-  cooldown: 60,
+  cooldown: 5,
   aliases: [],
   description: 'Ask a question.',
   async execute(message, args, cmd, client, Discord, profileData) {

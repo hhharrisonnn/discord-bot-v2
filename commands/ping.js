@@ -1,7 +1,7 @@
 module.exports = {
   name: 'ping',
   permissions: [],
-  cooldown: 0,
+  cooldown: 5,
   aliases: [],
   description: 'Get the latency and uptime of bot.',
   execute(message, args, cmd, client, Discord, profileData) {

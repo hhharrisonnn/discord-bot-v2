@@ -6,7 +6,7 @@ module.exports = {
   name: 'commands',
   permissions: [],
   aliases: ['c', 'help', 'h'],
-  cooldown: 300,
+  cooldown: 60,
   description: 'Shows list of commands.',
   execute(message, args, cmd, client, Discord) {
     const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);

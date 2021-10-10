@@ -1,7 +1,7 @@
 module.exports = {
   name: 'perms',
   permissions: [],
-  cooldown: 300,
+  cooldown: 60,
   description: 'This is a check permissions command.',
   execute(message, args, cmd, client, Discord) {
     if (message.member.permissions.has("ADMINISTRATOR")) {

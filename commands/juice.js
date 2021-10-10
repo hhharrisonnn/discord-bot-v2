@@ -1,7 +1,7 @@
 module.exports = {
   name: 'juice',
   permissions: [],
-  cooldown: 5,
+  cooldown: 0,
   description: 'Check your juice level.',
   execute(message, args) {
     const juiceLevel = Math.floor(Math.random() * 100);

@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
   name: 'weather',
   permissions: [],
-  cooldown: 0,
+  cooldown: 5,
   description: 'Check the weather of a location.',
   async execute(message, args, cmd, client, Discord) {
     weather.find({search: args.join(" "), degreeType: 'C'}, function (error, result){
