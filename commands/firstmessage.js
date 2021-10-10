@@ -20,7 +20,7 @@ module.exports = {
         .setTitle(`First Messsage in #${message.channel.name}`)
         .setURL(msg.url)
         .setThumbnail(msg.author.displayAvatarURL({ dynamic: true }))
-        .setDescription('Content: ' + msg.content)
+        .setDescription('*click link above to go to original message*')
         .addField('Author:', msg.author, true)
         .addField('Message:', msg.content, true)
         .addField('Created At:', msg.createdAt.toLocaleDateString(), true)
@@ -33,9 +33,9 @@ module.exports = {
         .setTitle(`First Messsage in #${message.channel.name}`)
         .setURL(msg.url)
         .setThumbnail(msg.author.displayAvatarURL({ dynamic: true }))
-        .setDescription('Content: ' + msg.content)
+        .setDescription('*click link above to go to original message*')
         .addField('Author:', msg.author, true)
-        .addField('Message ID:', msg.id, true)
+        .addField('Message:', '*not available*', true)
         .addField('Created At:', msg.createdAt.toLocaleDateString(), true)
       );
     }   
