@@ -8,8 +8,6 @@ module.exports = {
   alisases: ['convert', 'exchangerate', 'er'],
   description: 'Check the conversion rate between two currencies.',
   async execute(message, args, cmd, client, Discord, profileData) {
-    const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-
     if (!args[0]) return message.reply(`make sure to use the correct format: ${prefix}currency, convert, exchangerate, er [amount] [currency1] to/=> [currency2]. For example: ${prefix}currency 1 usd to gbp.`);
     const currency1 = args.slice(1, 2).toString().toUpperCase('');
     var amount = args[0];
@@ -41,16 +39,34 @@ module.exports = {
       .then(resp => resp.json())
       .then((data) => {
       const embed = new Discord.MessageEmbed()
-      .setColor(color)
+      .setColor('RANDOM')
       .setTitle(`${amount} ${currency1} = ${data.conversion_result} ${currency2}`)
       .setAuthor(
         'ExchangeRate',
         'https://i.nuuls.com/d6PLz.png',
         'https://www.exchangerate-api.com/'
       )
-      message.channel.send(embed);
+
+      message.channel.send(embed).then(msg => {
+        let interval = setInterval(() => {
+          let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+          let embed2 = new Discord.MessageEmbed()
+          .setColor(newColor)
+          .setTitle(`${amount} ${currency1} = ${data.conversion_result} ${currency2}`)
+          .setAuthor(
+            'ExchangeRate',
+            'https://i.nuuls.com/d6PLz.png',
+            'https://www.exchangerate-api.com/'
+          )
+          msg.edit(embed2);
+        }, 5000);
+  
+        setTimeout(() => {
+          clearInterval(interval);
+        }, 60000);
       });
-    }
+    });
+  }
     catch(err) {
       console.log(err);
     }

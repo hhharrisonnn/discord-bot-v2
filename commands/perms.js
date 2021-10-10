@@ -4,8 +4,6 @@ module.exports = {
   cooldown: 300,
   description: 'This is a check permissions command.',
   execute(message, args, cmd, client, Discord) {
-    const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-
     if (message.member.permissions.has("ADMINISTRATOR")) {
       var admin = 'Yes';
     } else {
@@ -48,7 +46,7 @@ module.exports = {
     }
 
     const permsEmbed = new Discord.MessageEmbed()
-    .setColor(color)
+    .setColor('RANDOM')
     .setTitle('Perms')
     .addFields(
       {name: 'Admin', value: `${admin}`},
@@ -60,6 +58,29 @@ module.exports = {
       {name: 'Deafen memebers', value: `${deafen}`},
       {name: 'Move members', value: `${move}`},
     ) 
-    message.channel.send(permsEmbed);
+    
+    message.channel.send(permsEmbed).then(msg => {
+      let interval = setInterval(() => {
+        let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+        let embed2 = new Discord.MessageEmbed()
+        .setColor(newColor)
+        .setTitle('Perms')
+        .addFields(
+          {name: 'Admin', value: `${admin}`},
+          {name: 'Kick members', value: `${kick}`},
+          {name: 'Ban members', value: `${ban}`},
+          {name: 'Manage channels', value: `${manage_channels}`},
+          {name: 'View audit log', value: `${audit}`},
+          {name: 'Manage messages', value: `${manage_messages}`},
+          {name: 'Deafen memebers', value: `${deafen}`},
+          {name: 'Move members', value: `${move}`},
+        ) 
+        msg.edit(embed2);
+      }, 5000);
+
+      setTimeout(() => {
+        clearInterval(interval);
+      }, 60000);
+    });
   }
 }
