@@ -8,10 +8,6 @@ width: 70,
 height: 70,
 whitespace: [[0, 0], [0, 0], [0, 0], [0, 1]] 
 };
-const figlet = require("figlet");
-const { promisify } = require("util");
-const { AggregationCursor } = require('mongoose');
-const figletAsync = promisify(figlet);
 module.exports = {
     name: 'ascii',
     permissions: [],
@@ -59,25 +55,6 @@ image2braille(url, settings).then(function (asciified) {
 
 
 })
- /* if(!args.includes(`.png`) || (`.jpeg`) || !emoji || !message.attachments.first()) {
-    let Content = args.join(" ");
-
-    if (!Content) return message.channel.send(`Please Give Me Text!`);
-    
-    let Result = await figletAsync(Content);
-    
-    const embed = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setDescription("```" + Result + "```")
-    
-    
-    if (Content.length > 20)
-      return message.channel.send(`Please Make Shorter! | Limit : 20`);
-    
-    message.channel.send(embed);
- }
-
- */
 }
 
     }
