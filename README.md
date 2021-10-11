@@ -41,6 +41,8 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `subage` - Check the Twitch subage of a user to a channel
 - `define` - Get the definition of a word
 - `urban` - Get the Urban definition of a word
+- `ascii` - Get an ASCII braille of an image or emote
+- `ocr` - Get text from an image
 
 ### Moderation⚒
 - `nick` - Change someone's nickname
