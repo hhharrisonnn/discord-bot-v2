@@ -96,3 +96,10 @@ Start the bot by typing:
 ```
 node .
 ```
+
+## Crediting ❤
+This project was heavily inspired by Supinic's Twitch bot *Supibot*.  
+Check him out here:  
+[Twitch](https://www.twitch.tv/supinic)  
+[Website](https://supinic.com/)  
+[GitHub](https://github.com/Supinic/)
