@@ -87,8 +87,8 @@ module.exports = {
     .addFields(
       {name: 'Change someone\'s nickname (MANAGE NICKNAMES ROLE ONLY)', value: 'nick, nickname @[member] [new nickname]'},
       {name: 'Reset someone\'s nickname (MANAGE NICKNAMES ROLE ONLY)', value: 'resetnick, nickrest @[member]'},
-      {name: 'Kick (ADMIN ONLY)', value: 'kick @[member]'},
-      {name: 'Ban (ADMIN ONLY)', value: 'ban @[member]'},
+      {name: 'Kick (ADMIN ONLY)', value: 'kick @[member] [reason]'},
+      {name: 'Ban (ADMIN ONLY)', value: 'ban @[member] [reason]'},
       {name: 'Purge (ADMIN ONLY, you cannot delete messages that are older than 14 days).', value: 'purge [number]'},
     )  
 
