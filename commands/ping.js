@@ -6,15 +6,8 @@ module.exports = {
   description: 'Get the latency and uptime of bot.',
   execute(message, args, cmd, client, Discord, profileData) {
     message.channel.send('Calculating ping...').then(resultMessage => {
-      const thumbnails = [
-        'https://i.nuuls.com/AqVXz.gif',
-        'https://i.nuuls.com/zPBek.gif',
-        'https://i.nuuls.com/S3u5N.gif'
-      ];
-      const result = Math.floor(Math.random() * thumbnails.length);
-      const answer = thumbnails[result];
-
-
+      const botAvatar = client.user.displayAvatarURL();;
+      
       const ping = resultMessage.createdTimestamp - message.createdTimestamp;
 
       let days = Math.floor(client.uptime / 86400000);
@@ -25,7 +18,7 @@ module.exports = {
       const embed = new Discord.MessageEmbed()
       .setAuthor('Pong! 🏓')
       .setColor('RANDOM')
-      .setThumbnail(answer)
+      .setThumbnail(botAvatar)
       .addFields(
         {name: 'Latency:', value: `${ping}ms`},
         {name: 'API Latency:', value: `${client.ws.ping}ms`},
@@ -38,7 +31,7 @@ module.exports = {
           let embed2 = new Discord.MessageEmbed()
           .setAuthor('Pong! 🏓')
           .setColor(newColor)
-          .setThumbnail(answer)
+          .setThumbnail(botAvatar)
           .addFields(
             {name: 'Latency:', value: `${ping}ms`},
             {name: 'API Latency:', value: `${client.ws.ping}ms`},
