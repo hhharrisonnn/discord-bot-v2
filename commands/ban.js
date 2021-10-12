@@ -8,13 +8,19 @@ module.exports = {
     let member = message.mentions.members.first();
     if (!member) return message.reply('you need to mention a member to ban them.');
     let reason = args.slice(1).join(' ');
-    if (!reason) reason = 'No Reason Given';
+    if (!reason) reason = '*No Reason Given*';
     if (!member.bannable) return message.reply('this member is not bannable');
+
+    const embed = new Discord.MessageEmbed()
+    .setColor('RANDOM')
+    .addField('You have been banned from:', message.guild)
+    .addField('Reason:', reason)
+    .setThumbnail(message.guild.iconURL())
 
     const user = await client.users.fetch(member.id);
 
     try {
-      await user.send(`You have been banned from server '${message.guild}' | Reason: ${reason}`);
+      await user.send(embed);
     } catch {
       console.log(`Ban: Could not DM the user ${member}.`);
     } finally {
