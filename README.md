@@ -83,6 +83,12 @@ You will need an ExchangeRate-API key for [currency.js](https://github.com/hhhar
 1. Create an ExchangeRate-API account [here](https://app.exchangerate-api.com/sign-up)
 2. Add the ExchangeRate key into the [.env](#env) file
 
+### OCR API
+You will need an OCR API key for [ocr.js](https://github.com/hhharrisonnn/discord-bot-v2/blob/master/commands/ocr.js):
+1. Register for an OCR API key [here](https://us11.list-manage.com/subscribe?u=ce17e59f5b68a2fd3542801fd&id=252aee70a1)
+2. Check your email for the OCR API key
+3. Add the OCR API key into the [.env](#env) file
+
 ### .env
 1. Create a `.env` file to store your tokens 
 2. Add in the values for each:
@@ -90,6 +96,7 @@ You will need an ExchangeRate-API key for [currency.js](https://github.com/hhhar
 DISCORD_TOKEN = <YourDiscordToken>
 MONGODB_SRV = <mongodb+srv://{yourinfo}>
 EXCHANGERATE_KEY = <YourExchangeRateKey>
+OCR_KEY = <yourOCRKey>
 PREFIX = <yourPrefix>
 ```
 
