@@ -8,8 +8,10 @@ module.exports = {
   description: 'Translate something into English.',
   execute(message, args, cmd, client, Discord, profileData) {
     if (args.includes('to')) {
-      const language = args.join(' ').split(' ').pop();
-      const text = args.join(' ').replace(/ to .*/, '');
+      const language =  args.join(" ").split(" ").pop();
+      var word = ` to *`;
+      var pat = new RegExp('(\\b' + word + '\\b)(?!.*\\b\\1\\b)', 'is');
+      text = args.join(' ').split(pat)[0]
       translate(text, {to : `${language}`}).then(res => {
         const embed = new Discord.MessageEmbed()
         .setColor('RANDOM')
