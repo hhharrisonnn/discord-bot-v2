@@ -19,4 +19,4 @@ module.exports = (Discord, client) => {
     client.user.setActivity(status, { type: `${typeOfActivity}` });
     index++;
   }, 10000);
-}
+};
