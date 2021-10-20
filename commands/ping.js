@@ -5,9 +5,9 @@ module.exports = {
   aliases: [],
   description: 'Get the latency and uptime of bot.',
   execute(message, args, cmd, client, Discord, profileData) {
-    message.channel.send('Calculating ping...').then(resultMessage => {
-      const botAvatar = client.user.displayAvatarURL();;
-      
+    message.channel.send('Calculating ping...').then((resultMessage) => {
+      const botAvatar = client.user.displayAvatarURL();
+
       const ping = resultMessage.createdTimestamp - message.createdTimestamp;
 
       let days = Math.floor(client.uptime / 86400000);
@@ -16,34 +16,42 @@ module.exports = {
       let seconds = Math.floor(client.uptime / 1000) % 60;
 
       const embed = new Discord.MessageEmbed()
-      .setAuthor('Pong! 🏓')
-      .setColor('RANDOM')
-      .setThumbnail(botAvatar)
-      .addFields(
-        {name: 'Latency:', value: `${ping}ms`},
-        {name: 'API Latency:', value: `${client.ws.ping}ms`},
-        {name: 'Uptime:', value: `${days}d ${hours}h ${minutes}m ${seconds}s`}
-      )
+        .setAuthor('Pong! 🏓')
+        .setColor('RANDOM')
+        .setThumbnail(botAvatar)
+        .addFields(
+          { name: 'Latency:', value: `${ping}ms` },
+          { name: 'API Latency:', value: `${client.ws.ping}ms` },
+          {
+            name: 'Uptime:',
+            value: `${days}d ${hours}h ${minutes}m ${seconds}s`,
+          }
+        );
 
-      message.channel.send(embed).then(msg => {
+      message.channel.send(embed).then((msg) => {
         let interval = setInterval(() => {
-          let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+          let newColor =
+            '#' +
+            (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6);
           let embed2 = new Discord.MessageEmbed()
-          .setAuthor('Pong! 🏓')
-          .setColor(newColor)
-          .setThumbnail(botAvatar)
-          .addFields(
-            {name: 'Latency:', value: `${ping}ms`},
-            {name: 'API Latency:', value: `${client.ws.ping}ms`},
-            {name: 'Uptime:', value: `${days}d ${hours}h ${minutes}m ${seconds}s`}
-          )
+            .setAuthor('Pong! 🏓')
+            .setColor(newColor)
+            .setThumbnail(botAvatar)
+            .addFields(
+              { name: 'Latency:', value: `${ping}ms` },
+              { name: 'API Latency:', value: `${client.ws.ping}ms` },
+              {
+                name: 'Uptime:',
+                value: `${days}d ${hours}h ${minutes}m ${seconds}s`,
+              }
+            );
           msg.edit(embed2);
         }, 5000);
-  
+
         setTimeout(() => {
           clearInterval(interval);
         }, 60000);
       });
     });
-  }
-}
+  },
+};
