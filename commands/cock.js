@@ -8,9 +8,13 @@ module.exports = {
     const member = message.mentions.members.first();
 
     if (member) {
-      message.reply(`${member}'s cock is ${cockSize} inches long, oh yeahhhhhh! <:gachiGASM:896883731841826887>`);
+      message.reply(
+        `${member}'s cock is ${cockSize} inches long, oh yeahhhhhh! <:gachiGASM:896883731841826887>`
+      );
     } else {
-      message.reply(`your cock is ${cockSize} inches long, oh yeahhhhhh! <:gachiGASM:896883731841826887>`);
+      message.reply(
+        `your cock is ${cockSize} inches long, oh yeahhhhhh! <:gachiGASM:896883731841826887>`
+      );
     }
-  }
-}
+  },
+};
