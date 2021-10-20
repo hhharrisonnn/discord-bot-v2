@@ -19,29 +19,37 @@ module.exports = {
     if (amount % 1 != 0 || amount <= 0) {
       return message.reply('please enter a valid amount of coins to give.');
     }
-    
-    try {
-      if (amount > profileData.coins) return message.channel.send(`You don't have that amount of coins to give.`);
-      await profileModel.findOneAndUpdate({
-        userID: message.author.id
-      }, {
-        $inc: {
-          coins: -amount,
-        }
-      });
 
-      await profileModel.findOneAndUpdate({
-        userID: member.id
-      }, {
-        $inc: {
-          coins: amount,
+    try {
+      if (amount > profileData.coins)
+        return message.channel.send(
+          `You don't have that amount of coins to give.`
+        );
+      await profileModel.findOneAndUpdate(
+        {
+          userID: message.author.id,
+        },
+        {
+          $inc: {
+            coins: -amount,
+          },
         }
-      });
+      );
+
+      await profileModel.findOneAndUpdate(
+        {
+          userID: member.id,
+        },
+        {
+          $inc: {
+            coins: amount,
+          },
+        }
+      );
 
       message.reply(`gave ${amount} coins to ${member}`);
-
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   },
-} 
+};
