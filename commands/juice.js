@@ -6,11 +6,15 @@ module.exports = {
   execute(message, args) {
     const juiceLevel = Math.floor(Math.random() * 100);
     const member = message.mentions.members.first();
-    
+
     if (member) {
-      message.reply(`${member}'s juice level is currently at ${juiceLevel}%! :beverage_box:`);
+      message.reply(
+        `${member}'s juice level is currently at ${juiceLevel}%! :beverage_box:`
+      );
     } else {
-      message.reply(`your juice level is currently at ${juiceLevel}%! :beverage_box:`);
+      message.reply(
+        `your juice level is currently at ${juiceLevel}%! :beverage_box:`
+      );
     }
-  }
-}
+  },
+};
