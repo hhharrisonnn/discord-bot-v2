@@ -4,12 +4,12 @@ const cooldowns = new Map();
 
 module.exports = async (Discord, client, message) => {
   const prefix = process.env.PREFIX;
-  if(!message.content.startsWith(prefix) || message.author.bot) return;
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   let profileData;
   try {
     profileData = await profileModel.findOne({ userID: message.author.id });
-    if(!profileData) {
+    if (!profileData) {
       let profile = await profileModel.create({
         userID: message.author.id,
         serverID: message.guild.id,
@@ -20,56 +20,58 @@ module.exports = async (Discord, client, message) => {
       });
       profile.save();
     }
-  } catch(err) {
+  } catch (err) {
     console.log(err);
   }
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const cmd = args.shift().toLowerCase();
 
-  const command = client.commands.get(cmd) || client.commands.find(a => a.aliases && a.aliases.includes(cmd));
-  if(!command) return;
+  const command =
+    client.commands.get(cmd) ||
+    client.commands.find((a) => a.aliases && a.aliases.includes(cmd));
+  if (!command) return;
   const validPermissions = [
-    "ADMINISTRATOR",
-    "CREATE_INSTANT_INVITE",
-    "KICK_MEMBERS",
-    "BAN_MEMBERS",
-    "MANAGE_CHANNELS",
-    "MANAGE_GUILD",
-    "ADD_REACTIONS",
-    "VIEW_AUDIT_LOG",
-    "VIEW_CHANNEL",
-    "READ_MESSAGES",
-    "SEND_MESSAGES",
-    "SEND_TTS_MESSAGES",
-    "MANAGE_MESSAGES",
-    "EMBED_LINKS",
-    "ATTACH_FILES",
-    "READ_MESSAGE_HISTORY",
-    "MENTION_EVERYONE",
-    "USE_EXTERNAL_EMOJIS",
-    "EXTERNAL_EMOJIS",
-    "CONNECT",
-    "SPEAK",
-    "MUTE_MEMBERS",
-    "DEAFEN_MEMBERS",
-    "MOVE_MEMBERS",
-    "USE_VAD",
-    "CHANGE_NICKNAME",
-    "MANAGE_NICKNAMES",
-    "MANAGE_ROLES",
-    "MANAGE_ROLES_OR_PERMISSIONS",
-    "MANAGE_WEBHOOKS",
-    "MANAGE_EMOJIS",
-  ]
+    'ADMINISTRATOR',
+    'CREATE_INSTANT_INVITE',
+    'KICK_MEMBERS',
+    'BAN_MEMBERS',
+    'MANAGE_CHANNELS',
+    'MANAGE_GUILD',
+    'ADD_REACTIONS',
+    'VIEW_AUDIT_LOG',
+    'VIEW_CHANNEL',
+    'READ_MESSAGES',
+    'SEND_MESSAGES',
+    'SEND_TTS_MESSAGES',
+    'MANAGE_MESSAGES',
+    'EMBED_LINKS',
+    'ATTACH_FILES',
+    'READ_MESSAGE_HISTORY',
+    'MENTION_EVERYONE',
+    'USE_EXTERNAL_EMOJIS',
+    'EXTERNAL_EMOJIS',
+    'CONNECT',
+    'SPEAK',
+    'MUTE_MEMBERS',
+    'DEAFEN_MEMBERS',
+    'MOVE_MEMBERS',
+    'USE_VAD',
+    'CHANGE_NICKNAME',
+    'MANAGE_NICKNAMES',
+    'MANAGE_ROLES',
+    'MANAGE_ROLES_OR_PERMISSIONS',
+    'MANAGE_WEBHOOKS',
+    'MANAGE_EMOJIS',
+  ];
 
   if (command.permissions.length) {
     let invalidPerms = [];
-    for(const perm of command.permissions) {
+    for (const perm of command.permissions) {
       if (!validPermissions.includes(perm)) {
         return console.log(`Invalid Permissions ${perm}`);
       }
-      if(!message.member.hasPermission(perm)) {
+      if (!message.member.hasPermission(perm)) {
         invalidPerms.push(perm);
       }
     }
@@ -84,13 +86,17 @@ module.exports = async (Discord, client, message) => {
 
   const currentTime = Date.now();
   const timeStamps = cooldowns.get(command.name);
-  const cooldownAmount = (command.cooldown) * 1000;
+  const cooldownAmount = command.cooldown * 1000;
 
   if (timeStamps.has(message.author.id)) {
     const expirationTime = timeStamps.get(message.author.id) + cooldownAmount;
     if (currentTime < expirationTime) {
       const timeLeft = (expirationTime - currentTime) / 1000;
-      return message.reply(`you have to wait ${timeLeft.toFixed(1)} more seconds until you can use this command again.`);
+      return message.reply(
+        `you have to wait ${timeLeft.toFixed(
+          1
+        )} more seconds until you can use this command again.`
+      );
     }
   }
 
@@ -99,7 +105,7 @@ module.exports = async (Discord, client, message) => {
 
   try {
     command.execute(message, args, cmd, client, Discord, profileData);
-  } catch(err) {
+  } catch (err) {
     message.reply('Error while sending command.');
     console.log(err);
   }
