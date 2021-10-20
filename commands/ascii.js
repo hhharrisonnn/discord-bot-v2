@@ -64,8 +64,9 @@ module.exports = {
     image2braille(url, settings).then(function (asciified) {
       const embed = new Discord.MessageEmbed().setDescription(
         '```' +
-          `${asciified.join('\n').trimRight().replace(/,/g, '')}\n` +'```);
-      message.channel.send(embed).catch(function (err) {
+        `${asciified.join('\n').trimRight().replace(/,/g, '')}\n` +
+        '```'
+    );message.channel.send(embed).catch(function (err) {
         message.channel.send(err);
       });
     });
