@@ -4,7 +4,7 @@ module.exports = {
   name: 'emojify',
   permissions: [],
   cooldown: 0,
-  aliases: [''],
+  aliases: [],
   description: 'Emojify a message',
   async execute(message, args, cmd, client, Discord, profileData) {
     if(!args.length) return message.reply('please enter a message to emojify.');
