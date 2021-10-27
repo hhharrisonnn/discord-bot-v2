@@ -10,11 +10,10 @@ module.exports = {
     let member = message.mentions.members.first();
     member = member ? member : message.member;
 
-    const members = message.guild.members.cache
+    const position = message.guild.members.cache
       .sort((a, b) => a.joinedTimestamp - b.joinedTimestamp)
-      .array();
-
-    const position = members.findIndex(m => m.id === member.id) + 1;
+      .array()
+      .findIndex(m => m.id === member.id) + 1;
 
     message.reply(`${member} is number ${position} to join the server.`);
   },
