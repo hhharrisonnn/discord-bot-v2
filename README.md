@@ -105,6 +105,10 @@ Start the bot by typing:
 ```
 node .
 ```
+Alternatively, with nodemon:
+```
+npm run devStart
+```
 
 ## Crediting ❤
 This project was heavily inspired by Supinic's Twitch bot *Supibot*.  
