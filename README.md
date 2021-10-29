@@ -1,11 +1,27 @@
 # discord-bot-v2
 This is a multi-function Discord bot, with fun and moderation commands. This bot could be self-hosted either on a dedicated server or cloud hosting like AWS.
 
+## Contents
+* <a href="#commands">Commands</a>
+    * <a href="#currency-moneybag">Currency :moneybag:</a>
+    * <a href="#games-8ball-video_game-game_die">Games :8ball: :video_game: :game_die:</a>
+    * <a href="#miscellaneous-symbols">Miscellaneous :symbols:</a>
+    * <a href="#moderation-hammer_and_pick">Moderation :hammer_and_pick:</a>
+* <a href="#setup">Setup</a>
+    * <a href="#source-code">Source code</a>
+    * <a href="#dependencies">Dependencies</a>
+    * <a href="#mongodb">MongoDB</a>
+    * <a href="#exchangerate-api">ExchangeRate-API</a>
+    * <a href="#ocr-api">OCR API</a>
+    * <a href="#env">.env</a>
+    * <a href="#starting-the-bot">Starting the bot</a>
+* <a href="#crediting-heart">Crediting :heart:</a>
+
 ## Commands
 *You can set your own prefix [here](#env)*.
 - `help`
 
-### Currency💰
+### Currency :moneybag:
 - `daily` - Claim daily bonus 2000 coins
 - `roulette` - Roulette coins 
 - `balance` - Check your balance
@@ -14,7 +30,7 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `beg` - Beg for coins
 - `givecoins` - Give someone coins
 
-### Games🎱🎮🎲
+### Games :8ball: :video_game: :game_die:
 - `8ball` - 8Ball answers a question
 - `joke` - Cringy joke
 - `momjoke` - Mom joke
@@ -25,7 +41,7 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `kw` - Kill weebs
 - `cage` - Number of caged weebs
 
-### Miscellaneous🔣
+### Miscellaneous :symbols:
 - `say` - Make the bot say something
 - `perms` - Check permissions
 - `avatar` - Avatar/profile picture of a user
@@ -44,7 +60,7 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `ascii` - Get an ASCII braille of an image or emote
 - `ocr` - Get text from an image
 
-### Moderation⚒
+### Moderation :hammer_and_pick:
 - `nick` - Change someone's nickname
 - `resetnick` - Reset someone's nickname
 - `kick` - Kick a member from the server
@@ -110,7 +126,7 @@ Alternatively, with nodemon:
 npm run devStart
 ```
 
-## Crediting ❤
+## Crediting :heart:
 This project was heavily inspired by Supinic's Twitch bot *Supibot*.  
 Check him out here:  
 [Twitch](https://www.twitch.tv/supinic)  
