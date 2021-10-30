@@ -60,7 +60,7 @@ module.exports = {
       {name: 'Weather', value: 'weather [location]'},
       {name: 'Go AFK', value: 'afk'},
       {name: 'Return from AFK', value: 'nafk, return, rafk'},
-      {name: 'Remind (you can only remind yourself for now)', value: 'remind [time] [reminder]'},
+      {name: 'Remind yourself or another member', value: 'remindme [time] [message], remind ([user] [message])/([user] [time] [message])'},
       {name: 'See the first message of a channel', value: 'firstmessage, firstmsg'},
       {name: 'Translate something', value: 'translate [term] to [language]'},
       {name: 'Emojify a message', value: 'emojify [message]'},

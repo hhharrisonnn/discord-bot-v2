@@ -1,58 +1,77 @@
-const ms = require('ms');
+strToTimedelta = require('string-to-timedelta');
+const prefix = process.env.PREFIX;
 
 module.exports = {
   name: 'remind',
   permissions: [],
   cooldown: 0,
-  aliases: [],
+  aliases: ['remindme'],
   description: 'Remind command.',
   async execute(message, args, cmd, client, Discord, profileData) {
-    const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+    if (!args[0]) return message.reply(`type ${prefix}help to get help with this command.`);
+    const member = message.mentions.members.first();
+    var timeRegex = /(?:(?:([0-9]+)(?:d| ?days?)(?:, ?| )?)|(?:([0-9]+)(?:h| ?hours?| ?hrs?)(?:, ?| )?)|(?:([0-9]+)(?:m| ?minutes?| ?hrs?)(?:, ?| )?)|(?:([0-9]+)(?:s| ?seconds?)(?:,(?: ?and)? ?| )?))/gi;
+    
+    if (!message.content.startsWith(`${prefix}remindme`) && !member)
+      return message.reply(`type ${prefix}help to get help with this command.`);
 
-    let time = args[0];
-    let user = message.author;
-    let reminder = args.splice(1).join(' ');
+    if (message.content.startsWith(`${prefix}remindme`)) {
+      var time = args.join(' ').match(timeRegex).join(' ');
+      var reminder = args.slice(1).join(' ').replace(timeRegex, '');
+      let time2 = require('pretty-ms')(strToTimedelta.parse(time));
 
-    const notime = new Discord.MessageEmbed()
-    .setColor(color)
-    .setDescription(`**Please specify the time**`)
+      if (!reminder) return message.reply('tell me what you want to be remind you of.');
 
-    const wrongtime = new Discord.MessageEmbed()
-    .setColor(color)
-    .setDescription(`**Sorry I only do d, m, h, or s.**`)
+      message.reply(`I will remind you in ${time2}`);
 
-    const reminderembed = new Discord.MessageEmbed()
-    .setColor(color)
-    .setDescription(`**Please tell me what you want to be reminded of**`)
+      const reminderdm = new Discord.MessageEmbed()
+        .setColor('RANDOM')
+        .setTitle('**REMINDER**')
+        .setDescription(`**Reminder from yourself**: ${reminder} *(${time2} ago)*`);
 
-    if (!args[0]) return message.channel.send(notime);
-    if (
-      !args[0].endsWith("d") &&   
-      !args[0].endsWith("m") &&
-      !args[0].endsWith("h") &&
-      !args[0].endsWith("s")
-    )
-    return message.channel.send(wrongtime);
+      setTimeout(async function () {
+        try {
+          await message.channel.send(message.author, reminderdm);
+        } catch (err) {}
+      }, strToTimedelta.parse(time));
+      return;
+    }
 
-    if (!reminder) return message.channel.send(reminderembed);
+    if (member && !args.join(' ').match(timeRegex)) {
+      const remindMessage = args.slice(1).join(' ');
+      const reminderdm = new Discord.MessageEmbed()
+      .setColor('RANDOM')
+      .setTitle('**REMINDER**')
+      .setDescription(`**Reminder from ${message.author}**: ${remindMessage}`)
 
-    const remindertime = new Discord.MessageEmbed()
-    .setColor(color)
-    .setDescription(`\**Your reminder will go off in ${time}**`)
+      if (!remindMessage) return message.reply('tell me what you want me remind someone of.');
 
-    message.channel.send(remindertime);
+      const filter = (m) => m.author.id === member.user.id;
+      message.reply(`I will remind ${member} when they next type in chat.`);
+      message.channel.awaitMessages(filter, { max: 1 }).then((collected) => {
+        message.channel.send(member, reminderdm);
+      })
+      return;
+    }
 
-    const reminderdm = new Discord.MessageEmbed()
-    .setColor(color)
-    .setTitle('**REMINDER**')
-    .setDescription(`**It has been ${time} here is your reminder:** ${reminder}`)
+    if (args[0] == `<@!${member.id}>` && args.join(' ').match(timeRegex).join(' ')) {
+      var time = args.join(' ').match(timeRegex).join(' ');
+      var reminder = args.slice(1).join(' ').replace(timeRegex, '');
+      let time2 = require('pretty-ms')(strToTimedelta.parse(time));
 
-    setTimeout(async function () {
-      try{
-        await user.send(reminderdm)
-      } catch(err) {
-        console.log(err);
-      }            
-    }, ms(time));
+      message.reply(`I will remind ${member} in ${time2}`);
+
+      const reminderdm = new Discord.MessageEmbed()
+        .setColor('RANDOM')
+        .setTitle('**REMINDER**')
+        .setDescription(`**Reminder from ${message.author}**: ${reminder} *(${time2} ago)* `);
+
+      setTimeout(async function () {
+        try {
+          await message.channel.send(member, reminderdm);
+        } catch (err) {}
+      }, strToTimedelta.parse(time));
+      return;
+    }
   }
 }
