@@ -20,24 +20,7 @@ module.exports = {
       .setThumbnail(`https://i.nuuls.com/hU80f.png`)
       .setTimestamp()
       .setFooter('Powered by Free Dictionary API')
-      
-      message.channel.send(embed).then(msg => {
-        let interval = setInterval(() => {
-          let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-          let embed2 = new Discord.MessageEmbed()
-          .setColor(newColor)
-          .setDescription(`**${res[0].meanings[0].definitions[0].definition}**`, '📜')
-          .setAuthor(`${term}:`, 'https://i.nuuls.com/AJOBC.png')
-          .setThumbnail(`https://i.nuuls.com/hU80f.png`)
-          .setTimestamp()
-          .setFooter('Powered by Free Dictionary API')
-          msg.edit(embed2);
-        }, 5000);
-  
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 60000);
-      });
+      message.channel.send(embed);
     } catch(err) {
       message.reply('definition not found/invalid.');
     }

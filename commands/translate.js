@@ -22,26 +22,7 @@ module.exports = {
         .setThumbnail(`https://i.nuuls.com/uQMal.png`)
         .setTimestamp()
         .setFooter('Powered by Google-Translate', '')
-        
-        message.channel.send(embed).then(msg => {
-          let interval = setInterval(() => {
-            let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-            let embed2 = new Discord.MessageEmbed()
-            .setColor(newColor)
-            .addField(`   Original`,`${text}`, true)
-            .addField(`${language.replace(/^./, language[0].toUpperCase())} translation`, `${res}`, true)
-            .setAuthor(
-              'Google Translate')
-            .setThumbnail(`https://i.nuuls.com/uQMal.png`)
-            .setTimestamp()
-            .setFooter('Powered by Google-Translate', '')
-            msg.edit(embed2);
-          }, 5000);
-    
-          setTimeout(() => {
-            clearInterval(interval);
-          }, 60000);
-        });
+        message.channel.send(embed);
       }).catch(err => {
         console.log(err);
       });
@@ -57,26 +38,7 @@ module.exports = {
         .setThumbnail(`https://i.nuuls.com/uQMal.png`)
         .setTimestamp()
         .setFooter('Powered by Google-Translate', '')
-        
-        message.channel.send(embed).then(msg => {
-          let interval = setInterval(() => {
-            let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-            let embed2 = new Discord.MessageEmbed()
-            .setColor(newColor)
-            .addField(` Original`,`${args.join(' ')}`, true)
-            .addField(`English translation`, `${res}`, true)
-            .setAuthor(
-              'Google Translate')
-            .setThumbnail(`https://i.nuuls.com/uQMal.png`)
-            .setTimestamp()
-            .setFooter('Powered by Google-Translate', '')
-            msg.edit(embed2);
-          }, 5000);
-    
-          setTimeout(() => {
-            clearInterval(interval);
-          }, 60000);
-        });
+        message.channel.send(embed);
       }).catch(err => {
         console.log(err);
       });

@@ -46,28 +46,9 @@ module.exports = {
         'https://i.nuuls.com/d6PLz.png',
         'https://www.exchangerate-api.com/'
       )
-
-      message.channel.send(embed).then(msg => {
-        let interval = setInterval(() => {
-          let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-          let embed2 = new Discord.MessageEmbed()
-          .setColor(newColor)
-          .setTitle(`${amount} ${currency1} = ${data.conversion_result} ${currency2}`)
-          .setAuthor(
-            'ExchangeRate',
-            'https://i.nuuls.com/d6PLz.png',
-            'https://www.exchangerate-api.com/'
-          )
-          msg.edit(embed2);
-        }, 5000);
-  
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 60000);
-      });
+      message.channel.send(embed);
     });
-  }
-    catch(err) {
+  } catch(err) {
       console.log(err);
     }
   }

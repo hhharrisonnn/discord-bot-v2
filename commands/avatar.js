@@ -13,20 +13,6 @@ module.exports = {
     .setColor('RANDOM')
     .setAuthor(`${user.username}'s Avatar`)
     .setImage(user.displayAvatarURL({ dynamic: true }));
-
-    message.channel.send(embed).then(msg => {
-      let interval = setInterval(() => {
-        let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-        let embed2 = new Discord.MessageEmbed()
-        .setColor(newColor)
-        .setAuthor(`${user.username}'s Avatar`)
-        .setImage(user.displayAvatarURL({ dynamic: true }))
-        msg.edit(embed2);
-      }, 5000);
-
-      setTimeout(() => {
-        clearInterval(interval);
-      }, 60000);
-    });
+    message.channel.send(message.author, embed);
   }
 }

@@ -26,35 +26,16 @@ module.exports = {
     fetch(
       `https://api.ocr.space/parse/imageurl?apikey=${process.env.OCR_KEY}&url=${url}`
     )
-      .then((resp) => resp.json())
-      .then((data) => {
-        const embed = new Discord.MessageEmbed()
-          .setTitle('OCR')
-          .addField(
-            'Output',
-            '```' + `${data.ParsedResults[0].ParsedText}` + '```'
-          )
-          .setColor('RANDOM');
-
-        message.channel.send(embed).then((msg) => {
-          let interval = setInterval(() => {
-            let newColor =
-              '#' +
-              (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6);
-            let embed2 = new Discord.MessageEmbed()
-              .setTitle('OCR')
-              .addField(
-                'Output',
-                '```' + `${data.ParsedResults[0].ParsedText}` + '```'
-              )
-              .setColor(newColor);
-            msg.edit(embed2);
-          }, 5000);
-
-          setTimeout(() => {
-            clearInterval(interval);
-          }, 60000);
-        });
-      });
+    .then((resp) => resp.json())
+    .then((data) => {
+      const embed = new Discord.MessageEmbed()
+      .setTitle('OCR')
+      .addField(
+        'Output',
+        '```' + `${data.ParsedResults[0].ParsedText}` + '```'
+      )
+      .setColor('RANDOM');
+      message.channel.send(embed);
+    });
   },
 };

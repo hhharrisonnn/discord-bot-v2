@@ -6,7 +6,7 @@ module.exports = {
   description: 'Get the latency and uptime of bot.',
   execute(message, args, cmd, client, Discord, profileData) {
     message.channel.send('Calculating ping...').then(resultMessage => {
-      const botAvatar = client.user.displayAvatarURL();;
+      const botAvatar = client.user.displayAvatarURL();
       
       const ping = resultMessage.createdTimestamp - message.createdTimestamp;
 
@@ -24,26 +24,7 @@ module.exports = {
         {name: 'API Latency:', value: `${client.ws.ping}ms`},
         {name: 'Uptime:', value: `${days}d ${hours}h ${minutes}m ${seconds}s`}
       )
-
-      message.channel.send(embed).then(msg => {
-        let interval = setInterval(() => {
-          let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-          let embed2 = new Discord.MessageEmbed()
-          .setAuthor('Pong! 🏓')
-          .setColor(newColor)
-          .setThumbnail(botAvatar)
-          .addFields(
-            {name: 'Latency:', value: `${ping}ms`},
-            {name: 'API Latency:', value: `${client.ws.ping}ms`},
-            {name: 'Uptime:', value: `${days}d ${hours}h ${minutes}m ${seconds}s`}
-          )
-          msg.edit(embed2);
-        }, 5000);
-  
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 60000);
-      });
+      message.channel.send(embed);
     });
   }
 }

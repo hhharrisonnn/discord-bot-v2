@@ -29,22 +29,7 @@ module.exports = {
       .setTitle(`*${joke}*`)
       .setAuthor('📜Joke')
       .setImage(answer)
-      
-      message.channel.send(embed).then(msg => {
-        let interval = setInterval(() => {
-          let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-          let embed2 = new Discord.MessageEmbed()
-          .setColor(newColor)
-          .setTitle(`*${joke}*`)
-          .setAuthor('📜Joke')
-          .setImage(answer)
-          msg.edit(embed2);
-        }, 5000);
-  
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 60000);
-      });
+      message.channel.send(embed);
     });
   }
 }
