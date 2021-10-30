@@ -22,7 +22,7 @@ module.exports = {
         .setThumbnail(`https://i.nuuls.com/uQMal.png`)
         .setTimestamp()
         .setFooter('Powered by Google-Translate', '')
-        message.channel.send(embed);
+        message.channel.send(message.author, embed);
       }).catch(err => {
         console.log(err);
       });
@@ -38,7 +38,7 @@ module.exports = {
         .setThumbnail(`https://i.nuuls.com/uQMal.png`)
         .setTimestamp()
         .setFooter('Powered by Google-Translate', '')
-        message.channel.send(embed);
+        message.channel.send(message.author, embed);
       }).catch(err => {
         console.log(err);
       });

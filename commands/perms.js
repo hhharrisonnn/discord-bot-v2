@@ -58,6 +58,6 @@ module.exports = {
       {name: 'Deafen memebers', value: `${deafen}`},
       {name: 'Move members', value: `${move}`},
     ) 
-    message.channel.send(permsEmbed);
+    message.channel.send(message.author, permsEmbed);
   }
 }

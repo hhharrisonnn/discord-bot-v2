@@ -15,6 +15,7 @@ module.exports = {
 
     if (msg.type == 'GUILD_MEMBER_JOIN') {
       message.channel.send(
+        message.author,
         new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setTitle(`First Message in #${message.channel.name}`)
@@ -27,6 +28,7 @@ module.exports = {
     }
     if (msg.content) {
       message.channel.send(
+        message.author,
         new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setTitle(`First Message in #${message.channel.name}`)
@@ -40,6 +42,7 @@ module.exports = {
     }
     else {
       message.channel.send(
+        message.author,
         new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setTitle(`First Message in #${message.channel.name}`)

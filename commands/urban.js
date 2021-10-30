@@ -19,7 +19,7 @@ module.exports = {
       .setDescription(`***${data.list[0].definition.replace(/([.*\[\]\/])/g, '') }***`)
       .setTimestamp()
       .setFooter('Powered by Urban Dictionary')
-      message.channel.send(embed);
+      message.channel.send(message.author, embed);
     }).catch(() => {
       message.reply('definition not found/invalid.');
     })

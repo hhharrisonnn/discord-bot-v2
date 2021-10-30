@@ -19,7 +19,7 @@ module.exports = {
     .setColor('RANDOM')
     .addField('Question:', question)
     .addField('Answer:', `...`);
-    await message.channel.send(embed).then(msg => {
+    await message.channel.send(message.author, embed).then(msg => {
       let interval = setInterval(() => {
         let newColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
         let embed2 = new MessageEmbed()

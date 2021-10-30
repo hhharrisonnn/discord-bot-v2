@@ -52,7 +52,7 @@ module.exports = {
           .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
           .setTimestamp()
           .setFooter('Powered by api.ivr.fi', '');
-          message.channel.send(embed);
+          message.channel.send(message.author, embed);
         }
         else {
           const embed = new Discord.MessageEmbed()
@@ -64,7 +64,7 @@ module.exports = {
           .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
           .setTimestamp()
           .setFooter('Powered by api.ivr.fi', '');
-          message.channel.send(embed);
+          message.channel.send(message.author, embed);
         }
       }
       else {
@@ -87,7 +87,7 @@ module.exports = {
           .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
           .setTimestamp()
           .setFooter('Powered by api.ivr.fi', '');
-          message.channel.send(embed);
+          message.channel.send(message.author, embed);
         }
           
         if (subscriberData["type"] === "paid") {
@@ -104,7 +104,7 @@ module.exports = {
           .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
           .setTimestamp()
           .setFooter('Powered by api.ivr.fi', '');
-          message.channel.send(embed);
+          message.channel.send(message.author, embed);
         }
                  
         if (subscriberData["type"] === "gift") {
@@ -123,7 +123,7 @@ module.exports = {
         .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
         .setTimestamp()
         .setFooter('Powered by api.ivr.fi', '');
-        message.channel.send(embed);
+        message.channel.send(message.author, embed);
         }
       }
     }

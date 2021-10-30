@@ -46,7 +46,7 @@ module.exports = {
         'https://i.nuuls.com/d6PLz.png',
         'https://www.exchangerate-api.com/'
       )
-      message.channel.send(embed);
+      message.channel.send(message.author, embed);
     });
   } catch(err) {
       console.log(err);

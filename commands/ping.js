@@ -24,7 +24,7 @@ module.exports = {
         {name: 'API Latency:', value: `${client.ws.ping}ms`},
         {name: 'Uptime:', value: `${days}d ${hours}h ${minutes}m ${seconds}s`}
       )
-      message.channel.send(embed);
+      message.channel.send(message.author, embed);
     });
   }
 }

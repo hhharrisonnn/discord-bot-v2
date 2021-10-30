@@ -27,7 +27,7 @@ module.exports = {
     .addField('Wind', current.winddisplay, true)
     .addField('Feels like', `${current.feelslike}°`, true)
     .addField('Humidity', `${current.humidity}%`, true)
-    message.channel.send(weatherinfo);
+    message.channel.send(message.author, weatherinfo);
   });        
   }
 }

@@ -20,7 +20,7 @@ module.exports = {
       .setThumbnail(`https://i.nuuls.com/hU80f.png`)
       .setTimestamp()
       .setFooter('Powered by Free Dictionary API')
-      message.channel.send(embed);
+      message.channel.send(message.author, embed);
     } catch(err) {
       message.reply('definition not found/invalid.');
     }

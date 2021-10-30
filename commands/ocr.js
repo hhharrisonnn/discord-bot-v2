@@ -35,7 +35,7 @@ module.exports = {
         '```' + `${data.ParsedResults[0].ParsedText}` + '```'
       )
       .setColor('RANDOM');
-      message.channel.send(embed);
+      message.channel.send(message.author, embed);
     });
   },
 };
