@@ -5,6 +5,8 @@ module.exports = {
   aliases: ['dadjoke', 'hahaa'],
   description: 'Very hilarious jokes.',
   execute(message, args, cmd, client, Discord, profileData) {
+    var member = message.mentions.members.first();
+    if (!member) member = message.author;
 
     const images = [
       'https://i.nuuls.com/t0vKj.png',
@@ -29,7 +31,7 @@ module.exports = {
       .setTitle(`*${joke}*`)
       .setAuthor('📜Joke')
       .setImage(answer)
-      message.channel.send(embed);
+      message.channel.send(member, embed);
     });
   }
 }

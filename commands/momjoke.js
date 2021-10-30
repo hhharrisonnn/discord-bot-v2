@@ -5,6 +5,9 @@ module.exports = {
   aliases: ['mumjoke'],
   description: 'A joke about your mother.',
   execute(message, args, cmd, client, Discord, profileData) {
+    var member = message.mentions.members.first();
+    if (!member) member = message.author;
+
     const images = [
       'https://i.nuuls.com/_JNTi.gif',
       'https://i.nuuls.com/HKHAa.png',
@@ -23,7 +26,7 @@ module.exports = {
       .setTitle(`*${joke}*`)
       .setAuthor(`Momjoke`)
       .setImage(answer)
-      message.channel.send(embed);
+      message.channel.send(member, embed);
     });
   }
 }
