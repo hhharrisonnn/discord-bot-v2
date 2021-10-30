@@ -11,7 +11,7 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
     .setColor('RANDOM')
-    .setAuthor(`${user.username}'s Avatar`)
+    .setAuthor(`${user.tag}'s avatar`, user.displayAvatarURL({ dynamic: true }))
     .setImage(user.displayAvatarURL({ dynamic: true }));
     message.channel.send(message.author, embed);
   }
