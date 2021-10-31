@@ -3,6 +3,8 @@ const profileModel = require('../../models/profileSchema');
 const cooldowns = new Map();
 
 module.exports = async (Discord, client, message) => {
+  if (message.channel.type === 'dm') return;
+
   const prefix = process.env.PREFIX;
   if(!message.content.startsWith(prefix) || message.author.bot) return;
 
