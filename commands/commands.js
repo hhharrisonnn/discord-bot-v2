@@ -9,10 +9,8 @@ module.exports = {
   cooldown: 60,
   description: 'Shows list of commands.',
   execute(message, args, cmd, client, Discord) {
-    const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-
     const page1 = new discord.MessageEmbed()
-    .setColor(color)
+    .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('💰')
     .addFields(
@@ -26,7 +24,7 @@ module.exports = {
     )
 
     const page2 = new discord.MessageEmbed()
-    .setColor(color)
+    .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('🎱🎮🎲')
     .addFields(
@@ -40,7 +38,7 @@ module.exports = {
     )   
 
     const page3 = new discord.MessageEmbed()
-    .setColor(color)
+    .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('🏹')
     .addFields(
@@ -50,7 +48,7 @@ module.exports = {
     )   
 
     const page4 = new discord.MessageEmbed()
-    .setColor(color)
+    .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('Misc 🔣')
     .addFields(
@@ -67,7 +65,7 @@ module.exports = {
     )
 
     const page5 = new discord.MessageEmbed()
-    .setColor(color)
+    .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('Misc 2 🔣')
     .addFields(
@@ -81,7 +79,7 @@ module.exports = {
     )
 
     const page6 = new discord.MessageEmbed()
-    .setColor(color)
+    .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('🛠️')
     .addFields(
