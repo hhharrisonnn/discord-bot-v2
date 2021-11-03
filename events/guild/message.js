@@ -92,7 +92,8 @@ module.exports = async (Discord, client, message) => {
     const expirationTime = timeStamps.get(message.author.id) + cooldownAmount;
     if (currentTime < expirationTime) {
       const timeLeft = (expirationTime - currentTime) / 1000;
-      return message.reply(`you have to wait ${timeLeft.toFixed(1)} more seconds until you can use this command again.`);
+      const date = new Date(timeLeft * 1000).toISOString().substr(11, 8);
+      return message.reply(`you have to wait ${date} until you can use this command again.`);
     }
   }
 
