@@ -5,7 +5,7 @@ module.exports = {
   name: 'currency',
   permissions: [],
   cooldown: 300,
-  alisases: ['convert', 'exchangerate', 'er'],
+  aliases: ['convert', 'exchangerate', 'er'],
   description: 'Check the conversion rate between two currencies.',
   async execute(message, args, cmd, client, Discord, profileData) {
     if (!args[0]) return message.reply(`make sure to use the correct format: ${prefix}currency, convert, exchangerate, er [amount] [currency1] to/=> [currency2]. For example: ${prefix}currency 1 usd to gbp.`);
