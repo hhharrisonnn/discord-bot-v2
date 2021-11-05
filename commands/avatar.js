@@ -3,7 +3,6 @@ module.exports = {
   aliases: ['icon', 'pfp', 'profilepic'],
   permissions: [],
   cooldown: 5,
-  aliases: ['icon', 'pfp', 'profilepic'],
   description: 'Return a user(s) avatar picture.',
   execute(message, args, cmd, client, Discord) {
 
