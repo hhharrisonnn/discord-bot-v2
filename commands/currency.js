@@ -9,7 +9,7 @@ module.exports = {
   description: 'Check the conversion rate between two currencies.',
   async execute(message, args, cmd, client, Discord, profileData) {
     if (!args[0]) return message.reply(`make sure to use the correct format: ${prefix}currency, convert, exchangerate, er [amount] [currency1] to/=> [currency2]. For example: ${prefix}currency 1 usd to gbp.`);
-    const currency1 = args.slice(1, 2).toString().toUpperCase('');
+    const currency1 = args.slice(1, 2).toString().toUpperCase();
     var amount = args[0];
     multiplier = args[0].substr(-1).toLowerCase();
 
@@ -29,10 +29,10 @@ module.exports = {
       }
     }
 
-    var currency2 = args.slice(2).toString().toUpperCase('')
+    let currency2 = args.slice(2).toString().toUpperCase();
     try {
       if (args.includes('to') || args.includes('=>')) {
-        currency2 = args.slice(3).toString().toUpperCase('');
+        currency2 = args.slice(3).toString().toUpperCase();
       }
       const host = `https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_KEY}/pair/${currency1}/${currency2}/${amount}`;
       fetch(`${host}`)
