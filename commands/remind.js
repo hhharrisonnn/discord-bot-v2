@@ -10,6 +10,7 @@ module.exports = {
   async execute(message, args, cmd, client, Discord, profileData) {
     if (!args[0]) return message.reply(`type ${prefix}help to get help with this command.`);
     const member = message.mentions.members.first();
+    if (member.id == message.client.user.id) return;
     var timeRegex = /(?:(?:([0-9]+)(?:d| ?days?)(?:, ?| )?)|(?:([0-9]+)(?:h| ?hours?| ?hrs?)(?:, ?| )?)|(?:([0-9]+)(?:m| ?minutes?| ?hrs?)(?:, ?| )?)|(?:([0-9]+)(?:s| ?seconds?)(?:,(?: ?and)? ?| )?))/gi;
     
     if (!message.content.startsWith(`${prefix}remindme`) && !member)
