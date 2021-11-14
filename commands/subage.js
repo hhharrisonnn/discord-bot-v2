@@ -9,8 +9,6 @@ module.exports = {
   aliases: ['sa'],
   description: 'Check the Twitch subage of a user to a channel',
   async execute(message, args, cmd, client, Discord, profileData) {
-    const color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
-
     try {
       exports.humanizeDuration = (ms) => {
         const options = {
@@ -45,25 +43,25 @@ module.exports = {
         let oldsub = subscriberCheck.data["cumulative"];
         if (oldsub["months"] === 0) {
           const embed = new Discord.MessageEmbed()
-          .setColor(color)
+          .setColor('RANDOM')
           .setTitle(`${user} => ${broadcaster}`)
           .setThumbnail('https://i.nuuls.com/Om2N3.png')
-          .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‎‏‎‏‏‎‏‏‎Status', `Has never been subscribed`, true)
+          .addField('Status', `Has never been subscribed`, true)
           .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
           .setTimestamp()
-          .setFooter('Powered by api.ivr.fi', '');
+          .setFooter('Powered by api.ivr.fi');
           message.channel.send(message.author, embed);
         }
         else {
           const embed = new Discord.MessageEmbed()
-          .setColor(color)
+          .setColor('RANDOM')
           .setTitle(`${user} => ${broadcaster}`)
           .setThumbnail('https://i.nuuls.com/Om2N3.png')
-          .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‎‏‎‏‏‎‏‏‎Status', `Not subbed`, true)
-          .addField('Previously subbed for', `‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ${oldsub["months"]} months`, true)
+          .addField('Status', `Not subbed`, true)
+          .addField('Previously subbed for', `${oldsub["months"]} months`, true)
           .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
           .setTimestamp()
-          .setFooter('Powered by api.ivr.fi', '');
+          .setFooter('Powered by api.ivr.fi');
           message.channel.send(message.author, embed);
         }
       }
@@ -75,54 +73,54 @@ module.exports = {
    
         if (subscriberData["type"] === "prime") {
           const embed = new Discord.MessageEmbed()
-          .setColor(color)
+          .setColor('RANDOM')
           .setTitle(`${user} => ${broadcaster}`)
           .setThumbnail('https://i.nuuls.com/Om2N3.png')
           .addField('Status', `Subbed`, true)
           .addField('Type', `Prime`, true)
           .addField('Total', `${subscriberLength["months"]} months`, true)
-          .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎Tier', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‏‏‎ ‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏${subscriberData["tier"]}`, true)
+          .addField('Tier', `${subscriberData["tier"]}`, true)
           .addField('Streak', `${subscriberStreak["months"]} months`, true)
-          .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ Renews/Ends in', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ${sa.humanizeDuration(ms)}`)
+          .addField('Renews/Ends in', `${sa.humanizeDuration(ms)}`)
           .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
           .setTimestamp()
-          .setFooter('Powered by api.ivr.fi', '');
+          .setFooter('Powered by api.ivr.fi');
           message.channel.send(message.author, embed);
         }
           
         if (subscriberData["type"] === "paid") {
           const embed = new Discord.MessageEmbed()
-          .setColor(color)
+          .setColor('RANDOM')
           .setTitle(`${user} => ${broadcaster}`)
           .setThumbnail('https://i.nuuls.com/Om2N3.png')
           .addField('Status', `Subbed`, true)
           .addField('Type', `Paid`, true)
           .addField('Total', `${subscriberLength["months"]} months`, true)
-          .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎Tier', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‏‏‎ ‎ ‎‏‏‎ ‎‏‏‎  ‎‏‏${subscriberData["tier"]}`, true)
+          .addField('Tier', `${subscriberData["tier"]}`, true)
           .addField('Streak', `${subscriberStreak["months"]} months`, true)
-          .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ Renews/Ends in', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ${sa.humanizeDuration(ms)}`)
+          .addField('Renews/Ends in', `${sa.humanizeDuration(ms)}`)
           .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
           .setTimestamp()
-          .setFooter('Powered by api.ivr.fi', '');
+          .setFooter('Powered by api.ivr.fi');
           message.channel.send(message.author, embed);
         }
                  
         if (subscriberData["type"] === "gift") {
         let gifter = subscriberData["gift"]["name"];
         const embed = new Discord.MessageEmbed()
-        .setColor(color)
+        .setColor('RANDOM')
         .setTitle(`${user} => ${broadcaster}`)
         .setThumbnail('https://i.nuuls.com/Om2N3.png')
         .addField('Status', `Subbed`, true)
         .addField('Type', `Gifted`, true)
         .addField('Total', `${subscriberLength["months"]} months`, true)
-        .addField(' ‎‏‏‎ ‎ ‎‏‏‎‎‏‏‎Tier', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏${subscriberData["tier"]}`, true)
+        .addField('Tier', `${subscriberData["tier"]}`, true)
         .addField('Gifter', `${gifter}`, true)
         .addField('Streak', `${subscriberStreak["months"]} months`, true)
-        .addField(' ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎‏‏‎‎‏‏‎Renews/Ends in', ` ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‏‏‎ ‎‏‏‎‎‏‏‎‎‏‏‎ ‎‏‏ ‎‏${sa.humanizeDuration(ms)}`)
+        .addField('Renews/Ends in', `${sa.humanizeDuration(ms)}`)
         .setURL(`https://api.ivr.fi/twitch/subage/${user}/${broadcaster}`)
         .setTimestamp()
-        .setFooter('Powered by api.ivr.fi', '');
+        .setFooter('Powered by api.ivr.fi');
         message.channel.send(message.author, embed);
         }
       }
