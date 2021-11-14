@@ -125,8 +125,6 @@ module.exports = {
         }
       }
     }
-    catch (err) {
-      message.reply(`make sure to use the correct format: ${process.env.PREFIX}subage, sa [user] [channel].`);
-    }
+    catch (err) {}
   }
 }
