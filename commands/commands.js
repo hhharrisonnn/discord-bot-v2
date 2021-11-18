@@ -53,6 +53,7 @@ module.exports = {
     .setDescription('Misc 🔣')
     .addFields(
       {name: 'Get random cat facts', value: 'catfact'},
+      {name: 'Get random dog facts', value: 'dogfact'},
       {name: 'Say', value: 'say #[channel] [message]'},
       {name: 'Check your permissions', value: 'perms'},
       {name: 'Avatar/profile pic of a user', value: 'avatar, profilepic, pfp, icon @[member]'},
@@ -61,7 +62,6 @@ module.exports = {
       {name: 'Return from AFK', value: 'nafk, return, rafk'},
       {name: 'Remind yourself or another member', value: 'remindme [time] [message], remind ([user] [message])/([user] [time] [message])'},
       {name: 'See the first message of a channel', value: 'firstmessage, firstmsg'},
-      {name: 'Translate something', value: 'translate [term] to [language]'},
     )
 
     const page5 = new discord.MessageEmbed()
@@ -69,6 +69,7 @@ module.exports = {
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('Misc 2 🔣')
     .addFields(
+      {name: 'Translate something', value: 'translate [term] to [language]'},
       {name: 'Emojify a message', value: 'emojify [message]'},
       {name: 'Check the join position of a member', value: 'joinposition, joinpos @[member]'},
       {name: 'Check conversion rate between two currencies', value: 'currency, convert, exchangerate, er [amount] [currency1] to/=> [currency2]'},
