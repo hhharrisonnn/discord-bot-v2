@@ -6,7 +6,7 @@ module.exports = {
   cooldown: 5,
   aliases: ['cat', 'cats', 'catfacts'],
   description: 'Get random cat facts.',
-  execute(message, Discord) {
+  execute(message, args, cmd, client, Discord, profileData) {
     fetch('https://cat-fact.herokuapp.com/facts/random?animal_type=cat')
     .then(resp => resp.json())
     .then((data) => {
