@@ -42,6 +42,9 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `cage` - Number of caged weebs
 
 ### Miscellaneous :symbols:
+- `lastfm profile` - Shows a user's Last.fm profile
+- `catfact` - Get random cat facts
+- `dogfact` - Get random dog facts
 - `say` - Make the bot say something
 - `perms` - Check permissions
 - `avatar` - Avatar/profile picture of a user
@@ -109,9 +112,9 @@ You will need an OCR API key for [ocr.js](https://github.com/hhharrisonnn/discor
 1. Create a `.env` file to store your tokens 
 2. Add in the values for each:
 ```
-DISCORD_TOKEN = <YourDiscordToken>
+DISCORD_TOKEN = <yourDiscordToken>
 MONGODB_SRV = <mongodb+srv://{yourinfo}>
-EXCHANGERATE_KEY = <YourExchangeRateKey>
+EXCHANGERATE_KEY = <yourExchangeRateKey>
 OCR_KEY = <yourOCRKey>
 PREFIX = <yourPrefix>
 ```
