@@ -52,6 +52,7 @@ module.exports = {
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('Misc 🔣')
     .addFields(
+      {name: 'Shows a user\'s Last.fm profile', value: 'lastfm, lf, lfm profile [username]'},
       {name: 'Get random cat facts', value: 'catfact'},
       {name: 'Get random dog facts', value: 'dogfact'},
       {name: 'Say', value: 'say #[channel] [message]'},
@@ -61,7 +62,6 @@ module.exports = {
       {name: 'Go AFK', value: 'afk'},
       {name: 'Return from AFK', value: 'nafk, return, rafk'},
       {name: 'Remind yourself or another member', value: 'remindme [time] [message], remind ([user] [message])/([user] [time] [message])'},
-      {name: 'See the first message of a channel', value: 'firstmessage, firstmsg'},
     )
 
     const page5 = new discord.MessageEmbed()
@@ -77,7 +77,8 @@ module.exports = {
       {name: 'Search Dictionary for a word', value: 'define, dictionary, dic [word]'},
       {name: 'Search Urban Dictionary for a term', value: 'urban, urbandictionary, ud [term]'},
       {name: 'Get an ASCII braille of an image or emote', value: 'ascii [image]/[:emote:]'},
-      {name: 'Get text from an image', value: 'ocr, ocrtranslate, scan [image]'}
+      {name: 'Get text from an image', value: 'ocr, ocrtranslate, scan [image]'},
+      {name: 'See the first message of a channel', value: 'firstmessage, firstmsg'},
     )
 
     const page6 = new discord.MessageEmbed()
