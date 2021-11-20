@@ -1,5 +1,4 @@
 const pagination = require('discord.js-pagination');
-const discord = require('discord.js');
 const prefix = process.env.PREFIX;
 
 module.exports = {
@@ -9,7 +8,7 @@ module.exports = {
   cooldown: 60,
   description: 'Shows list of commands.',
   execute(message, args, cmd, client, Discord) {
-    const page1 = new discord.MessageEmbed()
+    const page1 = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('💰')
@@ -23,7 +22,7 @@ module.exports = {
       {name: 'Give coins to someone', value: 'givecoins, gc, givepoints, gp'},
     )
 
-    const page2 = new discord.MessageEmbed()
+    const page2 = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('🎱🎮🎲')
@@ -35,9 +34,18 @@ module.exports = {
       {name: 'Check juice level😂', value: 'juice'},
       {name: 'Check cock size', value: 'cock'},
       {name: 'UwU-fy youw message ! >.<', value: 'weebify, uwu, uwufy, owo [message]'},
-    )   
+    )
 
-    const page3 = new discord.MessageEmbed()
+    const page3 = new Discord.MessageEmbed()
+    .setColor('RANDOM')
+    .setTitle(`${client.user.username} Commands List (${prefix})`)
+    .setDescription('Last.fm 🎧')
+    .addFields(
+      {name: 'Set name to database for Last.fm commands', value: 'lastfm, lf, lfm set [username]'},
+      {name: 'Shows a user\'s Last.fm profile', value: 'lastfm, lf, lfm profile [username]'},
+    )
+
+    const page4 = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('🏹')
@@ -47,12 +55,11 @@ module.exports = {
       {name: 'Number of weebs in cage', value: 'caged, cage, cagedweebs'},
     )   
 
-    const page4 = new discord.MessageEmbed()
+    const page5 = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('Misc 🔣')
     .addFields(
-      {name: 'Shows a user\'s Last.fm profile', value: 'lastfm, lf, lfm profile [username]'},
       {name: 'Get random cat facts', value: 'catfact'},
       {name: 'Get random dog facts', value: 'dogfact'},
       {name: 'Say', value: 'say #[channel] [message]'},
@@ -62,15 +69,15 @@ module.exports = {
       {name: 'Go AFK', value: 'afk'},
       {name: 'Return from AFK', value: 'nafk, return, rafk'},
       {name: 'Remind yourself or another member', value: 'remindme [time] [message], remind ([user] [message])/([user] [time] [message])'},
+      {name: 'Emojify a message', value: 'emojify [message]'},
     )
 
-    const page5 = new discord.MessageEmbed()
+    const page6 = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('Misc 2 🔣')
     .addFields(
       {name: 'Translate something', value: 'translate [term] to [language]'},
-      {name: 'Emojify a message', value: 'emojify [message]'},
       {name: 'Check the join position of a member', value: 'joinposition, joinpos @[member]'},
       {name: 'Check conversion rate between two currencies', value: 'currency, convert, exchangerate, er [amount] [currency1] to/=> [currency2]'},
       {name: 'Check the Twitch subage of a user to a channel', value: 'subage, sa [user] [channel]'},
@@ -81,7 +88,7 @@ module.exports = {
       {name: 'See the first message of a channel', value: 'firstmessage, firstmsg'},
     )
 
-    const page6 = new discord.MessageEmbed()
+    const page7 = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setTitle(`${client.user.username} Commands List (${prefix})`)
     .setDescription('🛠️')
@@ -99,7 +106,8 @@ module.exports = {
       page3,
       page4,
       page5,
-      page6
+      page6,
+      page7,
     ];
 
     const emoji = ['⏪' , '⏩'];
