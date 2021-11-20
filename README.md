@@ -42,6 +42,7 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 - `cage` - Number of caged weebs
 
 ### Miscellaneous :symbols:
+- `lastfm set` - Set name to database for Last.fm commands
 - `lastfm profile` - Shows a user's Last.fm profile
 - `catfact` - Get random cat facts
 - `dogfact` - Get random dog facts
