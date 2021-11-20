@@ -11,7 +11,7 @@ module.exports = {
   description: 'Provides information from the Last.fm API.',
   execute(message, args, cmd, client, Discord, profileData) {
     let user = args[1];
-    if (!user) return;
+    if (!user) user = profileData.lastfmUsername;
 
     const urls = [
       `https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${user}&api_key=${api_key}&format=json`,
@@ -62,6 +62,7 @@ module.exports = {
         
 
         if (args[0] == 'set') {
+          if (!args[1]) return;
           if (user == profileData.lastfmUsername) {
             const embed = new Discord.MessageEmbed()
             .setColor('RANDOM')
@@ -98,7 +99,7 @@ module.exports = {
           return message.channel.send(message.author, embed)
         }
 
-        if (args[0] == 'profile') {
+        if ((args[0] == 'profile') || !args[0]) {
           const embed = new Discord.MessageEmbed()
           .setColor('RANDOM')
           .setAuthor('Last.fm', 'https://images-ext-1.discordapp.net/external/LpyXpQXQ0yReqOQUyalm1-BpXTvW0LJbXtl57ShcRZg/https/i.imgur.com/pVu9vTr.png')
