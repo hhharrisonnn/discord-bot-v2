@@ -19,6 +19,7 @@ module.exports = async (Discord, client, message) => {
         bank: 0,
         huntweebs: 0,
         killweebs: 0,
+        lastfmUsername: undefined,
       });
       profile.save();
     }

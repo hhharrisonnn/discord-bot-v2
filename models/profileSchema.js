@@ -7,6 +7,7 @@ const profileSchema = new mongoose.Schema({
   bank: { type: Number },
   huntweebs: { type: Number },
   killweebs: { type: Number },
+  lastfmUsername: { type: String, default: undefined }
 })
 
 const model = mongoose.model('ProfileModels', profileSchema);

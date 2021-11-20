@@ -9,6 +9,7 @@ module.exports = async (client, Discord) => {
       bank: 0,
       huntweebs: 0,
       killweebs: 0,
+      lastfmUsername: undefined,
     });
     profile.save();
   } catch(err) {}
