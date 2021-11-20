@@ -44,6 +44,7 @@ This is a multi-function Discord bot, with fun and moderation commands. This bot
 ### Miscellaneous :symbols:
 - `lastfm set` - Set name to database for Last.fm commands
 - `lastfm profile` - Shows a user's Last.fm profile
+- `lastfm playing` - Shows what song a user on Last.fm is playing
 - `catfact` - Get random cat facts
 - `dogfact` - Get random dog facts
 - `say` - Make the bot say something

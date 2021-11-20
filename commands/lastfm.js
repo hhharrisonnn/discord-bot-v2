@@ -44,6 +44,8 @@ module.exports = {
         const songArtist = getRecentTracks.track[0].artist['#text'];
         const songName = getRecentTracks.track[0].name;
         const songURL = getRecentTracks.track[0].url;
+        const songCover = JSON.parse(JSON.stringify(getRecentTracks.track[0].image[2]))['#text'];
+        const songArtistURL = songURL.replace(/_.*/, "")
         const nowplaying = getRecentTracks.track[0]['@attr'];
         var listening = 'Listening' ;
         var timeSince = ''
@@ -116,6 +118,20 @@ module.exports = {
           .setFooter('Powered by Last.fm')
           .setTimestamp()
           message.channel.send(message.author, embed);
+        }
+
+        if (args[0] == 'playing' || 'p' || 'np') {
+          const embed = new Discord.MessageEmbed()
+          .setColor('RANDOM')
+          .setAuthor('Last.fm', 'https://images-ext-1.discordapp.net/external/LpyXpQXQ0yReqOQUyalm1-BpXTvW0LJbXtl57ShcRZg/https/i.imgur.com/pVu9vTr.png')
+          .setTitle(`${username}`)
+          .setURL(`${userURL}`)
+          .setThumbnail(songCover)
+          .addField('Track', `[${songName}](${songURL})`, true)
+          .addField('Artist', `[${songArtist}](${songArtistURL})`, true)
+          .setFooter('Powered by Last.fm')
+          .setTimestamp()
+          message.channel.send(message.author, embed);  
         }
       }).catch((error) => console.log(error));    
 

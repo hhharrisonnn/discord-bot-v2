@@ -43,6 +43,7 @@ module.exports = {
     .addFields(
       {name: 'Set name to database for Last.fm commands', value: 'lastfm, lf, lfm set [username]'},
       {name: 'Shows a user\'s Last.fm profile', value: 'lastfm, lf, lfm profile [username]'},
+      {name: 'Shows what a user is playing', value: 'lastfm, lf, lfm playing/np [username]'}
     )
 
     const page4 = new Discord.MessageEmbed()
