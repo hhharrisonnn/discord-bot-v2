@@ -95,7 +95,7 @@ module.exports = {
           return message.channel.send(message.author, embed)
         }
 
-        if ((args[0] == 'profile') || !args[0]) {
+        if (args[0] == 'profile') {
           const embed = new Discord.MessageEmbed()
           .setColor('RANDOM')
           .setAuthor('Last.fm', 'https://images-ext-1.discordapp.net/external/LpyXpQXQ0yReqOQUyalm1-BpXTvW0LJbXtl57ShcRZg/https/i.imgur.com/pVu9vTr.png')
@@ -114,7 +114,8 @@ module.exports = {
           message.channel.send(message.author, embed);
         }
 
-        if (args[0] == 'playing' || 'p' || 'np') {
+        if ((args[0] == ('playing' || 'p' || 'np')) || !args[0]) {
+          if (!profileData.lastfmUsername) return;
           const embed = new Discord.MessageEmbed()
           .setColor('RANDOM')
           .setAuthor('Last.fm', 'https://images-ext-1.discordapp.net/external/LpyXpQXQ0yReqOQUyalm1-BpXTvW0LJbXtl57ShcRZg/https/i.imgur.com/pVu9vTr.png')
