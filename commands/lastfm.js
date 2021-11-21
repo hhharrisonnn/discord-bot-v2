@@ -13,16 +13,10 @@ module.exports = {
     let user = args[1];
     if (!user) user = profileData.lastfmUsername;
 
-    const urls = [
-      `https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${user}&api_key=${api_key}&format=json`,
-      `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${api_key}&format=json`,
-      `https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${user}&api_key=${api_key}&format=json`,
-      `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${user}&api_key=${api_key}&format=json`,
-      `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${user}&api_key=${api_key}&format=json`,
-    ];
+    const methods = ['getinfo', 'getrecenttracks', 'gettopartists', 'gettopalbums', 'gettoptracks'];
 
-    Promise.all(urls.map(url => 
-        fetch(url)
+    Promise.all(methods.map(method => 
+        fetch(`https://ws.audioscrobbler.com/2.0/?method=user.${method}&user=${user}&api_key=${api_key}&format=json`)
         .then(parseJSON)
         .catch(error => console.log(error))
       ))
