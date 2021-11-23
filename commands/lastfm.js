@@ -114,20 +114,34 @@ module.exports = {
           message.channel.send(message.author, embed);
         }
 
-        if ((args[0] == ('playing' || 'p' || 'np')) || !args[0]) {
-          if (!profileData.lastfmUsername) return;
-          const embed = new Discord.MessageEmbed()
-          .setColor('RANDOM')
-          .setAuthor('Last.fm', 'https://images-ext-1.discordapp.net/external/LpyXpQXQ0yReqOQUyalm1-BpXTvW0LJbXtl57ShcRZg/https/i.imgur.com/pVu9vTr.png')
-          .setTitle(`${username}`)
-          .setURL(`${userURL}`)
-          .setThumbnail(songCover)
-          .addField('Track', `[${songName}](${songURL})`, true)
-          .addField('Artist', `[${songArtist}](${songArtistURL})`, true)
-          .setFooter('Powered by Last.fm')
-          .setTimestamp()
+        fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&user=${user}&api_key=${api_key}&artist=${songArtist}&track=${songName}&format=json`)
+        .then(resp => resp.json())
+        .then((data) => {
+          const songPlaycount = data.track.playcount;
+          const songAlbum = data.track.album.title;
+          const albumURL = data.track.album.url;
+          const userPlaycount = data.track.userplaycount;
+
+          if ((args[0] == ('playing' || 'p' || 'np')) || !args[0]) {
+            if (!profileData.lastfmUsername) return;
+            const embed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .setAuthor('Last.fm', 'https://images-ext-1.discordapp.net/external/LpyXpQXQ0yReqOQUyalm1-BpXTvW0LJbXtl57ShcRZg/https/i.imgur.com/pVu9vTr.png')
+            .setTitle(`${username}`)
+            .setURL(`${userURL}`)
+            .setThumbnail(songCover)
+            .addField('Track', `[${songName}](${songURL})`, true)
+            .addField('Artist', `[${songArtist}](${songArtistURL})`, true)
+            .addField('Album', `[${songAlbum}](${albumURL})`, true)
+            .addField('Playcount', userPlaycount, true)
+            .addField('Total scrobbles', songPlaycount, true)
+            .setFooter('Powered by Last.fm')
+            .setTimestamp()
+            message.channel.send(message.author, embed);  
           message.channel.send(message.author, embed);  
-        }
+            message.channel.send(message.author, embed);  
+          }
+        });
       }).catch((error) => console.log(error));    
 
       function parseJSON(response) {
