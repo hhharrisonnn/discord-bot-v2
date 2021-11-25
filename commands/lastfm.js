@@ -137,9 +137,7 @@ module.exports = {
             .addField('Total scrobbles', songPlaycount, true)
             .setFooter('Powered by Last.fm')
             .setTimestamp()
-            message.channel.send(message.author, embed);  
-          message.channel.send(message.author, embed);  
-            message.channel.send(message.author, embed);  
+            message.channel.send(message.author, embed);
           }
         });
       }).catch((error) => console.log(error));    
